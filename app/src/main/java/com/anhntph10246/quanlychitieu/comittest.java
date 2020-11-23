@@ -1,5 +1,4 @@
 package com.anhntph10246.quanlychitieu;
 
-public class test {
-    String asd;
+public class comittest {
 }
