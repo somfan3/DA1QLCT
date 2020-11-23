@@ -1,4 +1,5 @@
 package com.anhntph10246.quanlychitieu;
 
-public class comittest {
+public class TestGithub {
+
 }
