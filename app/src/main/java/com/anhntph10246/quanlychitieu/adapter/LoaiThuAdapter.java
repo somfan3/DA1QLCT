@@ -50,13 +50,13 @@ public class LoaiThuAdapter extends BaseAdapter {
     public View getView( int i, View view, ViewGroup viewGroup) {
         LoaiThuHolder holder;
         if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.item_loai_thu,viewGroup,false);
+            view = LayoutInflater.from(context).inflate(R.layout.item_loai2,viewGroup,false);
 
             holder = new LoaiThuHolder();
-            holder.ivLoaiThu = view.findViewById(R.id.ivLoaiThu);
-            holder.tvLoaiThu = view.findViewById(R.id.txtLoaiThu);
-            holder.ivSuaLoaiThu = view.findViewById(R.id.ivSuaLoaiThu);
-            holder.ivXoaLoaiThu = view.findViewById(R.id.ivXoaLoaiThu);
+            holder.ivLoaiThu = view.findViewById(R.id.ivIconLoai);
+            holder.tvLoaiThu = view.findViewById(R.id.tvTenLoai);
+            holder.ivSuaLoaiThu = view.findViewById(R.id.ivSuaLoai);
+            holder.ivXoaLoaiThu = view.findViewById(R.id.ivXoaLoai);
 
             view.setTag(holder);
         }else{

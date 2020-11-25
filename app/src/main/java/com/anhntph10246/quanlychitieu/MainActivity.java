@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //test git hub
         setTitle("");
 
         nav = findViewById(R.id.bottom_naviagtionview);
@@ -67,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
+        int id = item.getItemId();
+        if (id == R.id.item_search){
+            startActivity(new Intent(getApplicationContext(),TimKiemActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 }

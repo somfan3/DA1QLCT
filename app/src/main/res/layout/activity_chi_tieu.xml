@@ -2,11 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThuNhapActivity">
-
+    tools:context=".ChiTieuActivity">
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -19,7 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/tvNgayThu"
+        android:id="@+id/tvNgayChi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
@@ -27,8 +25,8 @@
         android:layout_marginTop="36dp"
         android:text="20-11-2020"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/edtTienThu"
-        app:layout_constraintTop_toBottomOf="@+id/edtTienThu" />
+        app:layout_constraintStart_toStartOf="@+id/edtTienChi"
+        app:layout_constraintTop_toBottomOf="@+id/edtTienChi" />
 
     <TextView
         android:id="@+id/textView4"
@@ -42,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <include
-        android:id="@+id/toolbarThuNhap"
+        android:id="@+id/toolbarChiTieu"
         layout="@layout/custom_toolbar2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,14 +56,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="84dp"
-        android:text="Loại thu :"
+        android:text="Loại Chi :"
         android:textColor="#59BFDF"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarThuNhap" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarChiTieu" />
 
     <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/spnLoaiThu"
+        android:id="@+id/spnLoaiChi"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -74,14 +72,14 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <ImageView
-        android:id="@+id/ivThemLoaiThu"
+        android:id="@+id/ivThemLoaiChi"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
-        android:onClick="listLoaiThu"
-        app:layout_constraintStart_toEndOf="@+id/spnLoaiThu"
-        app:layout_constraintTop_toTopOf="@+id/spnLoaiThu"
+        android:onClick="listLoaiChi"
+        app:layout_constraintStart_toEndOf="@+id/spnLoaiChi"
+        app:layout_constraintTop_toTopOf="@+id/spnLoaiChi"
         app:srcCompat="@drawable/ic_add_image" />
 
     <TextView
@@ -98,16 +96,16 @@
 
     <EditText
         android:maxLength="10"
-        android:id="@+id/edtTienThu"
+        android:id="@+id/edtTienChi"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Nhập"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/spnLoaiThu"
-        app:layout_constraintStart_toStartOf="@+id/spnLoaiThu"
-        app:layout_constraintTop_toBottomOf="@+id/spnLoaiThu" />
+        app:layout_constraintEnd_toEndOf="@+id/spnLoaiChi"
+        app:layout_constraintStart_toStartOf="@+id/spnLoaiChi"
+        app:layout_constraintTop_toBottomOf="@+id/spnLoaiChi" />
 
     <TextView
         android:id="@+id/textView3"
@@ -116,21 +114,20 @@
         android:layout_marginTop="36dp"
         android:text="VND"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/ivThemLoaiThu"
-        app:layout_constraintTop_toBottomOf="@+id/ivThemLoaiThu" />
+        app:layout_constraintStart_toStartOf="@+id/ivThemLoaiChi"
+        app:layout_constraintTop_toBottomOf="@+id/ivThemLoaiChi" />
 
     <ImageView
-        android:id="@+id/ivChonNgayThu"
+        android:id="@+id/ivChonNgayChi"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="39dp"
-        android:onClick="chonNgay"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/ic_lich" />
 
     <EditText
-        android:id="@+id/edtGhiChuThu"
+        android:id="@+id/edtGhiChuChi"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -138,26 +135,24 @@
         android:hint="Nhập"
         android:inputType="textPersonName"
         android:maxLength="20"
-        app:layout_constraintEnd_toEndOf="@+id/edtTienThu"
+        app:layout_constraintEnd_toEndOf="@+id/edtTienChi"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edtTienThu"
-        app:layout_constraintTop_toBottomOf="@+id/tvNgayThu" />
+        app:layout_constraintStart_toStartOf="@+id/edtTienChi"
+        app:layout_constraintTop_toBottomOf="@+id/tvNgayChi" />
 
     <Button
-        android:id="@+id/btnLuuThu"
+        android:id="@+id/btnLuuChi"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:background="@drawable/rounded_button"
-        android:onClick="luu"
         android:text="Lưu"
         android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/edtGhiChuThu" />
+        app:layout_constraintTop_toBottomOf="@+id/edtGhiChuChi" />
 
     <Button
-        android:onClick="huy"
-        android:id="@+id/btnHuyThu"
+        android:id="@+id/btnHuyChi"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -165,6 +160,6 @@
         android:background="@drawable/rounded_button"
         android:text="Hủy"
         android:textColor="@color/colorWhite"
-        app:layout_constraintStart_toEndOf="@+id/btnLuuThu"
-        app:layout_constraintTop_toTopOf="@+id/btnLuuThu" />
+        app:layout_constraintStart_toEndOf="@+id/btnLuuChi"
+        app:layout_constraintTop_toTopOf="@+id/btnLuuChi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

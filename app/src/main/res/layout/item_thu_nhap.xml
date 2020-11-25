@@ -9,7 +9,7 @@
     >
 
     <ImageView
-        android:id="@+id/iv_Thu"
+        android:id="@+id/iv_Loai"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -20,7 +20,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tv_LoaiThu"
+        android:id="@+id/tv_TenLoai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -29,32 +29,32 @@
         android:text="TextView"
         android:textColor="#59BFDF"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_Thu"
+        app:layout_constraintStart_toEndOf="@+id/iv_Loai"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_GhiChuThu"
+        android:id="@+id/tv_GhiChu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="#494D4E"
         android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/tv_LoaiThu"
-        app:layout_constraintTop_toBottomOf="@+id/tv_LoaiThu" />
+        app:layout_constraintStart_toStartOf="@+id/tv_TenLoai"
+        app:layout_constraintTop_toBottomOf="@+id/tv_TenLoai" />
 
     <TextView
         android:textColor="@color/colorBlack"
-        android:id="@+id/tv_NgayThu"
+        android:id="@+id/tv_NgayThang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/tv_GhiChuThu"
-        app:layout_constraintTop_toBottomOf="@+id/tv_GhiChuThu" />
+        app:layout_constraintStart_toStartOf="@+id/tv_GhiChu"
+        app:layout_constraintTop_toBottomOf="@+id/tv_GhiChu" />
 
     <ImageView
-        android:id="@+id/iv_SuaThu"
+        android:id="@+id/iv_Update"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="28dp"
@@ -65,7 +65,7 @@
         app:srcCompat="@drawable/ic_sua" />
 
     <TextView
-        android:id="@+id/tv_TienThu"
+        android:id="@+id/tv_Tien"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"

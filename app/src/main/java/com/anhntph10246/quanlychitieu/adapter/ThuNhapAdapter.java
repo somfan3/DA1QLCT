@@ -1,20 +1,13 @@
 package com.anhntph10246.quanlychitieu.adapter;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,13 +18,10 @@ import com.anhntph10246.quanlychitieu.ThuNhapActivity;
 import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
 import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.ThuNhap;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -103,12 +93,12 @@ public class ThuNhapAdapter extends RecyclerView.Adapter<ThuNhapAdapter.ThuNhapH
         TextView tv_TienThu;
         public ThuNhapHolder(@NonNull View itemView) {
             super(itemView);
-            iv_Thu = itemView.findViewById(R.id.iv_Thu);
-            iv_SuaThu = itemView.findViewById(R.id.iv_SuaThu);
-            tv_LoaiThu = itemView.findViewById(R.id.tv_LoaiThu);
-            tv_NgayThu = itemView.findViewById(R.id.tv_NgayThu);
-            tv_GhiChuThu = itemView.findViewById(R.id.tv_GhiChuThu);
-            tv_TienThu = itemView.findViewById(R.id.tv_TienThu);
+            iv_Thu = itemView.findViewById(R.id.iv_Loai);
+            iv_SuaThu = itemView.findViewById(R.id.iv_Update);
+            tv_LoaiThu = itemView.findViewById(R.id.tv_TenLoai);
+            tv_NgayThu = itemView.findViewById(R.id.tv_NgayThang);
+            tv_GhiChuThu = itemView.findViewById(R.id.tv_GhiChu);
+            tv_TienThu = itemView.findViewById(R.id.tv_Tien);
         }
     }
     public void setDataChange(List<ThuNhap> itemsThu){

@@ -9,7 +9,7 @@
     >
 
     <ImageView
-        android:id="@+id/ivSuaLoaiThu"
+        android:id="@+id/ivSuaLoai"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"
@@ -20,30 +20,30 @@
         app:srcCompat="@drawable/ic_sua" />
 
     <ImageView
-        android:id="@+id/ivLoaiThu"
+        android:id="@+id/ivIconLoai"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/ivXoaLoaiThu"
+        app:layout_constraintStart_toEndOf="@+id/ivXoaLoai"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_luong" />
 
     <TextView
         android:textColor="@color/colorBlack"
-        android:id="@+id/txtLoaiThu"
+        android:id="@+id/tvTenLoai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/ivLoaiThu"
+        app:layout_constraintStart_toEndOf="@+id/ivIconLoai"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ivXoaLoaiThu"
+        android:id="@+id/ivXoaLoai"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="4dp"
@@ -51,5 +51,5 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_delete" />
+        android:src="@drawable/ic_delete"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

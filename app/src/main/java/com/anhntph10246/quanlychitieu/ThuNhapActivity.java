@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +24,6 @@ import com.anhntph10246.quanlychitieu.model.LoaiThu;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -86,6 +84,12 @@ public class ThuNhapActivity extends AppCompatActivity {
         loaiThuDAO = new LoaiThuDAO(this);
 
         loaiThuList = loaiThuDAO.getAllLoaiThu();
+
+        if (loaiThuList.size() < 1){
+            LoaiThu loaiThu1 = new LoaiThu("Tiền lương",R.drawable.ic_luong);
+            loaiThuList.add(loaiThu1);
+            loaiThuDAO.insertLoaiThu(loaiThu1);
+        }
 
         loaiAdapter = new LoaiAdapter(loaiThuList,this);
         spnLoaiThu.setAdapter(loaiAdapter);
