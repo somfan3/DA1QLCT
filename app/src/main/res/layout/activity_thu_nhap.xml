@@ -14,17 +14,17 @@
             android:layout_alignParentTop="true"
            />
 
-        <TextView
-            android:layout_below="@id/toolbarThuNhap"
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="84dp"
-            android:text="Loại thu :"
-            android:textColor="#59BFDF"
-            android:textSize="20dp"
-           />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarThuNhap"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="84dp"
+        android:text="Loại thu :"
+        android:textColor="#59BFDF"
+        android:textSize="20sp" />
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spnLoaiThu"
             android:layout_width="170dp"
@@ -45,17 +45,16 @@
             android:layout_toRightOf="@id/spnLoaiThu"
             />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="Số tiền : "
-            android:textColor="#59BFDF"
-            android:textSize="20dp"
-            android:layout_below="@id/textView"
-            android:layout_alignLeft="@id/textView"
-      />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_alignLeft="@id/textView"
+        android:layout_marginTop="36dp"
+        android:text="Số tiền : "
+        android:textColor="#59BFDF"
+        android:textSize="20sp" />
         <EditText
             android:maxLength="10"
             android:id="@+id/edtTienThu"
@@ -80,17 +79,17 @@
             android:layout_below="@id/ivThemLoaiThu"
             android:layout_alignLeft="@id/ivThemLoaiThu"
         />
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="Ngày : "
-            android:textColor="#59BFDF"
-            android:textSize="20dp"
-            android:layout_below="@id/textView2"
-            android:layout_alignLeft="@id/textView2"
-              />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_alignLeft="@id/textView2"
+        android:layout_marginTop="36dp"
+        android:text="Ngày : "
+        android:textColor="#59BFDF"
+        android:textSize="20sp" />
 
         <TextView
             android:layout_marginLeft="3dp"
@@ -113,17 +112,16 @@
             android:layout_below="@id/textView3"
             />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="Ghi chú : "
-            android:textColor="#59BFDF"
-            android:textSize="20dp"
-            android:layout_below="@id/textView4"
-            android:layout_alignLeft="@id/textView4"
-        />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_alignLeft="@id/textView4"
+        android:layout_marginTop="36dp"
+        android:text="Ghi chú : "
+        android:textColor="#59BFDF"
+        android:textSize="20sp" />
             <EditText
                 android:id="@+id/edtGhiChuThu"
                 android:layout_width="170dp"
