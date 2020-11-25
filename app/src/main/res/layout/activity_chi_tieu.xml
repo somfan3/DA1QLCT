@@ -14,16 +14,15 @@
         />
 
     <TextView
-        android:layout_below="@id/toolbarChiTieu"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarChiTieu"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="84dp"
         android:text="Loại thu :"
         android:textColor="#59BFDF"
-        android:textSize="20dp"
-        />
+        android:textSize="20sp" />
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spnLoaiChi"
         android:layout_width="170dp"
@@ -48,13 +47,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_alignLeft="@id/textView"
         android:layout_marginTop="36dp"
         android:text="Số tiền : "
         android:textColor="#59BFDF"
-        android:textSize="20dp"
-        android:layout_below="@id/textView"
-        android:layout_alignLeft="@id/textView"
-        />
+        android:textSize="20sp" />
     <EditText
         android:maxLength="10"
         android:id="@+id/edtTienChi"
@@ -79,17 +77,17 @@
         android:layout_below="@id/ivThemLoaiChi"
         android:layout_alignLeft="@id/ivThemLoaiChi"
         />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_alignLeft="@id/textView2"
         android:layout_marginTop="36dp"
         android:text="Ngày : "
         android:textColor="#59BFDF"
-        android:textSize="20dp"
-        android:layout_below="@id/textView2"
-        android:layout_alignLeft="@id/textView2"
-        />
+        android:textSize="20sp" />
 
     <TextView
         android:layout_marginLeft="3dp"
@@ -116,13 +114,12 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_alignLeft="@id/textView4"
         android:layout_marginTop="36dp"
         android:text="Ghi chú : "
         android:textColor="#59BFDF"
-        android:textSize="20dp"
-        android:layout_below="@id/textView4"
-        android:layout_alignLeft="@id/textView4"
-        />
+        android:textSize="20sp" />
     <EditText
         android:id="@+id/edtGhiChuChi"
         android:layout_width="170dp"
