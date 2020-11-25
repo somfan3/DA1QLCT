@@ -182,8 +182,8 @@ public class ThuNhapActivity extends AppCompatActivity {
         loaiAdapter.setDataChange(loaiThuList);
     }
     public int checkPositionSpn(String loai){
-        for (int i = 0 ; i < thuNhapDAO.getAllThuNhap().size();i++){
-            if (loai.equals(thuNhapDAO.getAllThuNhap().get(i).getMaLoai())){
+        for (int i = 0 ; i < loaiThuList.size();i++){
+            if (loai.equals(loaiThuList.get(i).getMaLoai())){
                 return i;
             }
         }

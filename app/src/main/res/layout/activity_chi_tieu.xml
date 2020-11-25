@@ -1,89 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChiTieuActivity">
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Ghi chú : "
-        android:textColor="#59BFDF"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/tvNgayChi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="36dp"
-        android:text="20-11-2020"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/edtTienChi"
-        app:layout_constraintTop_toBottomOf="@+id/edtTienChi" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Ngày : "
-        android:textColor="#59BFDF"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <include
         android:id="@+id/toolbarChiTieu"
         layout="@layout/custom_toolbar2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        />
 
     <TextView
+        android:layout_below="@id/toolbarChiTieu"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="84dp"
-        android:text="Loại Chi :"
+        android:text="Loại thu :"
         android:textColor="#59BFDF"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarChiTieu" />
-
+        />
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spnLoaiChi"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        android:layout_toRightOf="@id/textView"
+        android:layout_alignTop="@id/textView"
+        />
 
     <ImageView
         android:id="@+id/ivThemLoaiChi"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:onClick="listLoaiChi"
-        app:layout_constraintStart_toEndOf="@+id/spnLoaiChi"
-        app:layout_constraintTop_toTopOf="@+id/spnLoaiChi"
-        app:srcCompat="@drawable/ic_add_image" />
+        app:srcCompat="@drawable/ic_add_image"
+        android:layout_alignTop="@id/spnLoaiChi"
+        android:layout_toRightOf="@id/spnLoaiChi"
+        />
 
     <TextView
-
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,9 +52,9 @@
         android:text="Số tiền : "
         android:textColor="#59BFDF"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        android:layout_below="@id/textView"
+        android:layout_alignLeft="@id/textView"
+        />
     <EditText
         android:maxLength="10"
         android:id="@+id/edtTienChi"
@@ -103,10 +64,10 @@
         android:ems="10"
         android:hint="Nhập"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/spnLoaiChi"
-        app:layout_constraintStart_toStartOf="@+id/spnLoaiChi"
-        app:layout_constraintTop_toBottomOf="@+id/spnLoaiChi" />
-
+        android:layout_alignLeft="@id/spnLoaiChi"
+        android:layout_alignRight="@id/spnLoaiChi"
+        android:layout_below="@id/spnLoaiChi"
+        />
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -114,18 +75,54 @@
         android:layout_marginTop="36dp"
         android:text="VND"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/ivThemLoaiChi"
-        app:layout_constraintTop_toBottomOf="@+id/ivThemLoaiChi" />
+        android:layout_toRightOf="@id/edtTienChi"
+        android:layout_below="@id/ivThemLoaiChi"
+        android:layout_alignLeft="@id/ivThemLoaiChi"
+        />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Ngày : "
+        android:textColor="#59BFDF"
+        android:textSize="20dp"
+        android:layout_below="@id/textView2"
+        android:layout_alignLeft="@id/textView2"
+        />
 
+    <TextView
+        android:layout_marginLeft="3dp"
+        android:id="@+id/tvNgayChi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtTienChi"
+        android:layout_alignLeft="@id/edtTienChi"
+        android:layout_marginTop="36dp"
+        android:text="20-11-2020"
+        android:textSize="18sp" />
     <ImageView
         android:id="@+id/ivChonNgayChi"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="39dp"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@drawable/ic_lich" />
+        android:onClick="chonNgay"
+        app:srcCompat="@drawable/ic_lich"
+        android:layout_alignLeft="@id/textView3"
+        android:layout_below="@id/textView3"
+        />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Ghi chú : "
+        android:textColor="#59BFDF"
+        android:textSize="20dp"
+        android:layout_below="@id/textView4"
+        android:layout_alignLeft="@id/textView4"
+        />
     <EditText
         android:id="@+id/edtGhiChuChi"
         android:layout_width="170dp"
@@ -135,10 +132,10 @@
         android:hint="Nhập"
         android:inputType="textPersonName"
         android:maxLength="20"
-        app:layout_constraintEnd_toEndOf="@+id/edtTienChi"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edtTienChi"
-        app:layout_constraintTop_toBottomOf="@+id/tvNgayChi" />
+        android:layout_alignLeft="@id/edtTienChi"
+        android:layout_below="@id/tvNgayChi"
+        />
+
 
     <Button
         android:id="@+id/btnLuuChi"
@@ -146,12 +143,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:background="@drawable/rounded_button"
+        android:onClick="luu"
         android:text="Lưu"
         android:textColor="@color/colorWhite"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/edtGhiChuChi" />
+        android:layout_alignLeft="@id/textView6"
+        android:layout_below="@id/textView6"
+        />
 
     <Button
+        android:onClick="huy"
         android:id="@+id/btnHuyChi"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -160,6 +160,7 @@
         android:background="@drawable/rounded_button"
         android:text="Hủy"
         android:textColor="@color/colorWhite"
-        app:layout_constraintStart_toEndOf="@+id/btnLuuChi"
-        app:layout_constraintTop_toTopOf="@+id/btnLuuChi" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_toRightOf="@id/btnLuuChi"
+        android:layout_alignTop="@id/btnLuuChi"
+        />
+</RelativeLayout>

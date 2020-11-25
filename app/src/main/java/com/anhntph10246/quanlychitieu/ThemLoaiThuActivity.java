@@ -92,21 +92,6 @@ public class ThemLoaiThuActivity extends AppCompatActivity {
         return 1;
     }
 
-    public void setupIcon() {
-        iconLoaiLists = new ArrayList<>();
-        iconLoaiLists.add(R.drawable.ic_luong);
-        iconLoaiLists.add(R.drawable.ic_lich);
-        iconLoaiLists.add(R.drawable.ic_suc_khoe);
-        adapter = new IconLoaiAdapter(this, iconLoaiLists);
-        gvIcon.setAdapter(adapter);
-        gvIcon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                icon = iconLoaiLists.get(i);
-                ivIconThu.setImageResource(icon);
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,4 +141,57 @@ public class ThemLoaiThuActivity extends AppCompatActivity {
         }
         return 1;
     }
+    public void setupIcon() {
+        iconLoaiLists = new ArrayList<>();
+        iconLoaiLists.add(R.drawable.ic_luong);
+        iconLoaiLists.add(R.drawable.ic_tien_dien);
+        iconLoaiLists.add(R.drawable.ic_an_uong);
+        iconLoaiLists.add(R.drawable.ic_ban_do);
+        iconLoaiLists.add(R.drawable.ic_bao_duong);
+        iconLoaiLists.add(R.drawable.ic_bao_hiem);
+        iconLoaiLists.add(R.drawable.ic_cham_soc_ca_nhan);
+        iconLoaiLists.add(R.drawable.ic_chi_phi);
+        iconLoaiLists.add(R.drawable.ic_coffee);
+        iconLoaiLists.add(R.drawable.ic_con_cai1);
+        iconLoaiLists.add(R.drawable.ic_con_cai2);
+        iconLoaiLists.add(R.drawable.ic_cuoi_hoi);
+        iconLoaiLists.add(R.drawable.ic_dau_tu);
+        iconLoaiLists.add(R.drawable.ic_di_chuyen);
+        iconLoaiLists.add(R.drawable.ic_dich_vu_gia_dinh);
+        iconLoaiLists.add(R.drawable.ic_khoang_chi_khac);
+        iconLoaiLists.add(R.drawable.ic_kinh_doanh);
+        iconLoaiLists.add(R.drawable.ic_lai);
+        iconLoaiLists.add(R.drawable.ic_mua_sam);
+        iconLoaiLists.add(R.drawable.ic_nha_hang);
+        iconLoaiLists.add(R.drawable.ic_phim_anh);
+        iconLoaiLists.add(R.drawable.ic_phu_kien);
+        iconLoaiLists.add(R.drawable.ic_qua_tang_va_quyen_gop);
+        iconLoaiLists.add(R.drawable.ic_quan_ao);
+        iconLoaiLists.add(R.drawable.ic_rut_tien);
+        iconLoaiLists.add(R.drawable.ic_sach);
+        iconLoaiLists.add(R.drawable.ic_sua_chu_nha_cua);
+        iconLoaiLists.add(R.drawable.ic_suc_khoe);
+        iconLoaiLists.add(R.drawable.ic_tang_le);
+        iconLoaiLists.add(R.drawable.ic_taxi);
+        iconLoaiLists.add(R.drawable.ic_the_thao);
+        iconLoaiLists.add(R.drawable.ic_thiet_bi_dien_tu);
+        iconLoaiLists.add(R.drawable.ic_thue_nha);
+        iconLoaiLists.add(R.drawable.ic_thuoc);
+        iconLoaiLists.add(R.drawable.ic_thuong);
+        iconLoaiLists.add(R.drawable.ic_tro_choi);
+        iconLoaiLists.add(R.drawable.ic_tu_thien);
+//        iconLoaiLists.add(R.drawable.ic_vat_nuoi);
+        iconLoaiLists.add(R.drawable.ic_vi_tien);
+        iconLoaiLists.add(R.drawable.ic_xang_dau);
+        adapter = new IconLoaiAdapter(this, iconLoaiLists);
+        gvIcon.setAdapter(adapter);
+        gvIcon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                icon = iconLoaiLists.get(i);
+                ivIconThu.setImageResource(icon);
+            }
+        });
+    }
+
 }

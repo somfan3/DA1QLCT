@@ -17,6 +17,7 @@ public class BieuDoActivity extends AppCompatActivity {
         setupToolbar();
     }
     public void setupToolbar(){
+        setTitle("");
         Toolbar toolbar = findViewById(R.id.toolbar_bieuDo);
         setSupportActionBar(toolbar);
         TextView tvTitle = findViewById(R.id.tvTitle);

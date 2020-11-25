@@ -35,4 +35,14 @@ public class ChiTieuActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void chonNgay(View view) {
+    }
+
+    public void luu(View view) {
+    }
+
+    public void huy(View view) {
+        finish();
+    }
 }

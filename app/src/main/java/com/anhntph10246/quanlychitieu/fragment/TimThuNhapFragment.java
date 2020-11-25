@@ -123,13 +123,13 @@ public class TimThuNhapFragment extends Fragment {
         rcv_thu.setAdapter(thuNhapAdapter);
     }
     public void tim(){
-        btn_timthu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double tien = Double.parseDouble(edt_timthu.getText().toString().replace(",",""));
-                changeData(thuNhapDAO.tim(tien));
-            }
-        });
+//        btn_timthu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                double tien = Double.parseDouble(edt_timthu.getText().toString().replace(",",""));
+//                changeData(thuNhapDAO.tim(tien));
+//            }
+//        });
     }
     public void changeData(List<ThuNhap> lists){
         thuNhapList.clear();
