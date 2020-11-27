@@ -53,18 +53,22 @@ public class LoaiChiDAO {
         return LoaiChiList;
     }
     //update
-    public int updateLoaiChi(LoaiChi loaiChi){
+    public int updateLoaiChi(LoaiChi loaiChi,String loai){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_MA_LOAI_CHI,loaiChi.getMaLoai());
         contentValues.put(COLUMN_ICON_LOAI_CHI,loaiChi.getIcon());
-        if (db.insert(TABLE_NAME,null,contentValues) < 0){
-            return -1;
-        }
+       try {
+           if (db.update(TABLE_NAME,contentValues,COLUMN_MA_LOAI_CHI + " = ?",new String[]{loai} ) < 0){
+               return -1;
+           }
+       }catch (Exception e){
+           return -1;
+       }
         return 1;
     }
     //delete
-    public int deleteLoaiChi(int id){
-        if (db.delete(TABLE_NAME,COLUMN_MA_LOAI_CHI+" = ?",new String[]{String.valueOf(id)}) < 0){
+    public int deleteLoaiChi(String id){
+        if (db.delete(TABLE_NAME,COLUMN_MA_LOAI_CHI+" = ?",new String[]{id}) < 0){
             return -1;
         }
         return 1;

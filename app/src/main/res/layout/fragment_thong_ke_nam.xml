@@ -26,10 +26,13 @@
                 android:text="Năm :"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp" />
+
             <androidx.appcompat.widget.AppCompatSpinner
-                android:layout_width="100dp"
+                android:id="@+id/spn_nam"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/spn_nam"/>
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
 
         </LinearLayout>
         <TextView

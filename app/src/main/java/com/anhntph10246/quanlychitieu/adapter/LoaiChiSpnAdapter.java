@@ -9,20 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anhntph10246.quanlychitieu.R;
+import com.anhntph10246.quanlychitieu.model.LoaiChi;
 import com.anhntph10246.quanlychitieu.model.LoaiThu;
 
 import java.util.List;
 
-public class LoaiAdapter extends BaseAdapter {
-    List<LoaiThu> loaiThuList;
+public class LoaiChiSpnAdapter  extends BaseAdapter {
+    List<LoaiChi> loaiChiList;
     Context context;
-    public LoaiAdapter(List<LoaiThu> loaiThuList, Context context) {
-        this.loaiThuList = loaiThuList;
+    public LoaiChiSpnAdapter(List<LoaiChi> loaiChiList, Context context) {
+        this.loaiChiList = loaiChiList;
         this.context = context;
     }
     @Override
     public int getCount() {
-        return loaiThuList.size();
+        return loaiChiList.size();
     }
 
     @Override
@@ -34,34 +35,34 @@ public class LoaiAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    public class LoaiHolder{
+    public class LoaiChiSpnHolder{
         ImageView ivLoai;
         TextView tvLoai;
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        LoaiHolder holder;
+        LoaiChiSpnHolder holder;
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.item_loai,viewGroup,false);
 
-            holder = new LoaiHolder();
+            holder = new LoaiChiSpnHolder();
             holder.ivLoai = view.findViewById(R.id.ivLoai);
             holder.tvLoai = view.findViewById(R.id.tvLoai);
 
             view.setTag(holder);
         }else{
-            holder = (LoaiHolder) view.getTag();
+            holder = (LoaiChiSpnHolder) view.getTag();
         }
 
-         LoaiThu loaiThu = loaiThuList.get(i);
+        LoaiChi loaiChi = loaiChiList.get(i);
 
-        holder.ivLoai.setImageResource(loaiThu.getIcon());
-        holder.tvLoai.setText(loaiThu.getMaLoai());
+        holder.ivLoai.setImageResource(loaiChi.getIcon());
+        holder.tvLoai.setText(loaiChi.getMaLoai());
 
         return view;
     }
-    public void setDataChange(List<LoaiThu> items){
-        loaiThuList = items;
+    public void setDataChange(List<LoaiChi> items){
+        loaiChiList = items;
         notifyDataSetChanged();
     }
 }

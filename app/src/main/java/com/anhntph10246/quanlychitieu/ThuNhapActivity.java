@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anhntph10246.quanlychitieu.adapter.LoaiAdapter;
+import com.anhntph10246.quanlychitieu.adapter.LoaiThuSpnAdapter;
 import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
 import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.LoaiThu;
@@ -35,7 +35,7 @@ public class ThuNhapActivity extends AppCompatActivity {
     EditText edtTienThu, edtGhiChuThu;
     TextView tvNgayThu;
     ImageView ivThemLoaiThu, ivChonNgayThu;
-    LoaiAdapter loaiAdapter;
+    LoaiThuSpnAdapter loaiThuSpnAdapter;
     List<LoaiThu> loaiThuList;
     LoaiThuDAO loaiThuDAO;
     Bundle bundle;
@@ -91,8 +91,8 @@ public class ThuNhapActivity extends AppCompatActivity {
             loaiThuDAO.insertLoaiThu(loaiThu1);
         }
 
-        loaiAdapter = new LoaiAdapter(loaiThuList,this);
-        spnLoaiThu.setAdapter(loaiAdapter);
+        loaiThuSpnAdapter = new LoaiThuSpnAdapter(loaiThuList,this);
+        spnLoaiThu.setAdapter(loaiThuSpnAdapter);
     }
     public void luu(View view) {
         if (bundle == null){
@@ -179,7 +179,7 @@ public class ThuNhapActivity extends AppCompatActivity {
         super.onResume();
         loaiThuList.clear();
         loaiThuList = loaiThuDAO.getAllLoaiThu();
-        loaiAdapter.setDataChange(loaiThuList);
+        loaiThuSpnAdapter.setDataChange(loaiThuList);
     }
     public int checkPositionSpn(String loai){
         for (int i = 0 ; i < loaiThuList.size();i++){

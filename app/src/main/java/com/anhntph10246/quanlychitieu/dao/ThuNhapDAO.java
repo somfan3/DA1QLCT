@@ -109,9 +109,9 @@ public class ThuNhapDAO {
         return thuNhapList;
     }
 
-    public int getIconThu(String ma) {
+    public int getIconThu(String maloai) {
         String sql = "Select " + LoaiThuDAO.COLUMN_ICON_LOAI_THU + " From " + LoaiThuDAO.TABLE_NAME
-                + " Where " + LoaiThuDAO.COLUMN_MA_LOAI_THU + " = '" + ma + "'";
+                + " Where " + LoaiThuDAO.COLUMN_MA_LOAI_THU + " = '" + maloai + "'";
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
         int icon = cursor.getInt(0);
@@ -121,10 +121,75 @@ public class ThuNhapDAO {
     }
 
 
-    public List<ThuNhap> tim(double tien) {
-        List<ThuNhap> thuNhapList = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery("select * from " + TABLE_NAME + " where " + COLUMN_TIEN_THU + " > " + tien + " order by " + COLUMN_NGAY_THU + " DESC", null);
+    public double getTongThu(){
+        Double tongThu = 0.0;
+        String sql = "Select Sum(" +COLUMN_TIEN_THU  + ") From " +TABLE_NAME;
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        tongThu = cursor.getDouble(0);
+        cursor.close();
+        return tongThu;
+    }
+    public double getTongThuNam(String nam){
+        Double tongThu = 0.0;
+        String sql = "Select Sum(" +COLUMN_TIEN_THU  + ") From " +TABLE_NAME +" Where strftime('%Y'," + COLUMN_NGAY_THU + ") " +
+                " = '" + nam + "'";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        tongThu = cursor.getDouble(0);
+        cursor.close();
+        return tongThu;
+    }
+    public double getTongThuThang(String nam,String thang){
+        if (Integer.parseInt(thang) < 10){
+            thang = "0" + thang;
+        }
+        Double tongThu = 0.0;
+        String sql = "Select Sum(" +COLUMN_TIEN_THU  + ") From " +TABLE_NAME +" Where strftime('%Y'," + COLUMN_NGAY_THU + ") " +
+                " = '" + nam + "' And strftime('%m'," + COLUMN_NGAY_THU + ") = '" + thang + "'";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        tongThu = cursor.getDouble(0);
+        cursor.close();
+        return tongThu;
+    }
+    public List<ThuNhap> tim(String loai , String tien , String ngaybatdau, String ngaykethuc) throws ParseException {
+        String sql = "";
+        if (loai.equals("Tất cả")){
+            sql = "Select * From ThuNhap";
+            if (tien.isEmpty() == false){
+                sql +=" Where tienthu > " +tien;
+            }
+            if (ngaybatdau.isEmpty() == false){
+                if (tien.isEmpty() == false){
+                    sql += " And ngaythu >= '" + ngaybatdau +"'";
+                }else{
+                    sql += " Where ngaythu >= '" + ngaybatdau + "'";
+                }
+            }
+            if (ngaykethuc.isEmpty() == false){
+                if (tien.isEmpty() == false || ngaybatdau.isEmpty() == false) {
+                    sql += " And ngaythu <= '" + ngaykethuc + "'";
+                }else{
+                    sql += " Where ngaythu <= '" + ngaykethuc + "'";
+                }
+            }
+        }else{
+            sql = "Select * From ThuNhap Where maloaithu = '" +loai +"'";
+            if (tien.isEmpty() == false){
+                sql +=" And tienthu > " +tien;
+            }
+            if (ngaybatdau.isEmpty() == false){
+                sql += " And ngaythu >= '" + ngaybatdau +"'";
+            }
+            if (ngaykethuc.isEmpty() == false){
+                sql += " And ngaythu <= '" + ngaykethuc + "'";
+            }
+        }
+
+        List<ThuNhap> thuNhapList = new ArrayList<>();
+        Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             ThuNhap thuNhap = null;
@@ -141,6 +206,8 @@ public class ThuNhapDAO {
             cursor.moveToNext();
         }
         cursor.close();
+
+
 
         return thuNhapList;
     }

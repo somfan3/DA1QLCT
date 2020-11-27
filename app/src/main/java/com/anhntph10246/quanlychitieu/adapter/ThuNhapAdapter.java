@@ -2,6 +2,7 @@ package com.anhntph10246.quanlychitieu.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,7 @@ public class ThuNhapAdapter extends RecyclerView.Adapter<ThuNhapAdapter.ThuNhapH
     @NonNull
     @Override
     public ThuNhapHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_thu_nhap,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_thu_chi,parent,false);
         return new ThuNhapHolder(view);
     }
 
@@ -99,6 +100,7 @@ public class ThuNhapAdapter extends RecyclerView.Adapter<ThuNhapAdapter.ThuNhapH
             tv_NgayThu = itemView.findViewById(R.id.tv_NgayThang);
             tv_GhiChuThu = itemView.findViewById(R.id.tv_GhiChu);
             tv_TienThu = itemView.findViewById(R.id.tv_Tien);
+
         }
     }
     public void setDataChange(List<ThuNhap> itemsThu){

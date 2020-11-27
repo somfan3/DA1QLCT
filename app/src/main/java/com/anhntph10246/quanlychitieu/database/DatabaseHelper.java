@@ -6,8 +6,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
+import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
 import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
+import com.anhntph10246.quanlychitieu.model.LoaiChi;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context) {
@@ -24,12 +27,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(LoaiThuDAO.SQL_LOAI_THU);
         sqLiteDatabase.execSQL(ThuNhapDAO.SQL_THU_NHAP);
+        sqLiteDatabase.execSQL(LoaiChiDAO.SQL_LOAI_CHI);
+        sqLiteDatabase.execSQL(ChiTieuDAO.SQL_CHI_TIEU);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("Drop table if exists " + LoaiThuDAO.TABLE_NAME);
         sqLiteDatabase.execSQL("Drop table if exists " + ThuNhapDAO.TABLE_NAME);
+        sqLiteDatabase.execSQL("Drop table if exists " + LoaiChiDAO.TABLE_NAME);
+        sqLiteDatabase.execSQL("Drop table if exists " + ChiTieuDAO.TABLE_NAME);
 
     }
 }

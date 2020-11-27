@@ -14,17 +14,18 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.NumberTextWatcherForThousand;
 import com.anhntph10246.quanlychitieu.R;
-import com.anhntph10246.quanlychitieu.ThuNhapActivity;
-import com.anhntph10246.quanlychitieu.adapter.LoaiAdapter;
+import com.anhntph10246.quanlychitieu.adapter.LoaiThuSpnAdapter;
 import com.anhntph10246.quanlychitieu.adapter.ThuNhapAdapter;
 import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
 import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.LoaiThu;
 import com.anhntph10246.quanlychitieu.model.ThuNhap;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,6 +34,8 @@ import java.util.List;
 
 public class TimThuNhapFragment extends Fragment {
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+
     Spinner spn_loaithu;
     ThuNhapAdapter thuNhapAdapter;
     RecyclerView rcv_thu;
@@ -72,43 +75,45 @@ public class TimThuNhapFragment extends Fragment {
     }
     public void getLoaiThu(){
         loaiThuList = loaiThuDAO.getAllLoaiThu();
-        loaiThuList.add(new LoaiThu("Chọn",R.mipmap.ic_launcher));
-        LoaiAdapter loaiAdapter = new LoaiAdapter(loaiThuList,getContext());
-        spn_loaithu.setAdapter(loaiAdapter);
+        loaiThuList.add(new LoaiThu("Tất cả",R.mipmap.ic_launcher));
+        LoaiThuSpnAdapter loaiThuSpnAdapter = new LoaiThuSpnAdapter(loaiThuList,getContext());
+        spn_loaithu.setAdapter(loaiThuSpnAdapter);
         spn_loaithu.setSelection(loaiThuList.size()-1);
     }
+    Calendar calendar1;
     public void chonNgayBatDau(){
         btn_ngaythustart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                 calendar1 = Calendar.getInstance();
+                int year = calendar1.get(Calendar.YEAR);
+                int month = calendar1.get(Calendar.MONTH);
+                int day = calendar1.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        calendar.set(i,i1,i2);
-                        btn_ngaythustart.setText(sdf.format(calendar.getTime()));
+                        calendar1.set(i,i1,i2);
+                        btn_ngaythustart.setText(sdf.format(calendar1.getTime()));
                     }
                 },year,month,day);
                 datePickerDialog.show();
             }
         });
     }
+     Calendar calendar2;
     public void chonNgayKetThuc(){
         btn_ngaythuend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                calendar2 = Calendar.getInstance();
+                int year = calendar2.get(Calendar.YEAR);
+                int month = calendar2.get(Calendar.MONTH);
+                int day = calendar2.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        calendar.set(i,i1,i2);
-                        btn_ngaythuend.setText(sdf.format(calendar.getTime()));
+                        calendar2.set(i,i1,i2);
+                        btn_ngaythuend.setText(sdf.format(calendar2.getTime()));
                     }
                 },year,month,day);
                 datePickerDialog.show();
@@ -122,18 +127,62 @@ public class TimThuNhapFragment extends Fragment {
         thuNhapAdapter = new ThuNhapAdapter(getContext(),thuNhapList);
         rcv_thu.setAdapter(thuNhapAdapter);
     }
+    String loai ="",tien = "",ngayBatDau = "", ngayKetThuc = "";
     public void tim(){
-//        btn_timthu.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                double tien = Double.parseDouble(edt_timthu.getText().toString().replace(",",""));
-//                changeData(thuNhapDAO.tim(tien));
-//            }
-//        });
+        btn_timthu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 loai = loaiThuList.get(spn_loaithu.getSelectedItemPosition()).getMaLoai();
+
+                if (btn_ngaythustart.getText().toString().equals("Chọn ngày bắt đầu")
+                && btn_ngaythuend.getText().toString().equals("Chọn ngày kết thúc")) {
+                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                        tien =edt_timthu.getText().toString().trim().replace(",","");
+                    }
+                }else if (btn_ngaythuend.getText().toString().equals("Chọn ngày kết thúc")) {
+                    ngayBatDau = sdf1.format(calendar1.getTime());
+                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                        tien = edt_timthu.getText().toString().trim().replace(",","");
+                    }
+                } else if (btn_ngaythustart.getText().toString().equals("Chọn ngày bắt đầu")) {
+                    ngayKetThuc = sdf1.format(calendar2.getTime());
+                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                        tien = edt_timthu.getText().toString().trim().replace(",", "");
+                    }
+                }
+                else {
+                    ngayBatDau = sdf1.format(calendar1.getTime());
+                    ngayKetThuc = sdf1.format(calendar2.getTime());
+                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                        tien = edt_timthu.getText().toString().trim().replace(",","");
+                    }
+                }
+
+                try {
+                    changeData(thuNhapDAO.tim(loai, tien, ngayBatDau, ngayKetThuc));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
     public void changeData(List<ThuNhap> lists){
         thuNhapList.clear();
         thuNhapList = lists;
         thuNhapAdapter.setDataChange(thuNhapList);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (loai.isEmpty() && tien.isEmpty() && ngayBatDau.isEmpty() && ngayKetThuc.isEmpty()){
+
+        }else{
+            try {
+                changeData(thuNhapDAO.tim(loai, tien, ngayBatDau, ngayKetThuc));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

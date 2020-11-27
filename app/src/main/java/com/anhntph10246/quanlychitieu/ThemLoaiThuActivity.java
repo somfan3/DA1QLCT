@@ -121,9 +121,6 @@ public class ThemLoaiThuActivity extends AppCompatActivity {
                     if (loaiThuDAO.updateLoaiThu(loaiThu,loai) < 0){
                         Toast.makeText(getApplicationContext(),"Loại thu đã tồn tại",Toast.LENGTH_SHORT).show();
                     }else{
-                        if (checkUsedLoai(loai) == -1){
-//                            thuNhapDAO.updateLoai(loai,loaiThu.getMaLoai());
-                        }
                         finish();
                     }
                 }

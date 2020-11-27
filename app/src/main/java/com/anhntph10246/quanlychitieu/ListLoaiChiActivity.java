@@ -7,15 +7,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.anhntph10246.quanlychitieu.adapter.LoaiChiAdapter;
+import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
+import com.anhntph10246.quanlychitieu.model.LoaiChi;
+
+import java.util.List;
+
 public class ListLoaiChiActivity extends AppCompatActivity {
+    LoaiChiAdapter adapter;
+    LoaiChiDAO loaiChiDAO;
+    ListView lvLoaiChi;
+    List<LoaiChi> loaiChiList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_loai_chi);
         setupToolbar();
+        lvLoaiChi = findViewById(R.id.lvLoaiChi);
+
+        loaiChiDAO = new LoaiChiDAO(this);
+        loaiChiList = loaiChiDAO.getAllLoaiChi();
+        adapter = new LoaiChiAdapter(this,loaiChiList);
+        lvLoaiChi.setAdapter(adapter);
     }
     public void setupToolbar(){
         setTitle("");
@@ -33,5 +50,13 @@ public class ListLoaiChiActivity extends AppCompatActivity {
     }
     public void them(View view) {
         startActivity(new Intent(getApplicationContext(),ThemLoaiChiActivity.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loaiChiList.clear();
+        loaiChiList = loaiChiDAO.getAllLoaiChi();
+        adapter.setDataChange(loaiChiList);
     }
 }

@@ -54,7 +54,7 @@
         android:textColor="#59BFDF"
         android:textSize="20sp" />
     <EditText
-        android:maxLength="10"
+        android:maxLength="13"
         android:id="@+id/edtTienChi"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
