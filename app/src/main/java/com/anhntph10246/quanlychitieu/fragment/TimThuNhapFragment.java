@@ -157,12 +157,7 @@ public class TimThuNhapFragment extends Fragment {
                         tien = edt_timthu.getText().toString().trim().replace(",","");
                     }
                 }
-
-                try {
                     changeData(thuNhapDAO.tim(loai, tien, ngayBatDau, ngayKetThuc));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
             }
         });
     }
@@ -178,11 +173,7 @@ public class TimThuNhapFragment extends Fragment {
         if (loai.isEmpty() && tien.isEmpty() && ngayBatDau.isEmpty() && ngayKetThuc.isEmpty()){
 
         }else{
-            try {
-                changeData(thuNhapDAO.tim(loai, tien, ngayBatDau, ngayKetThuc));
-            } catch (ParseException e) {
-                e.printStackTrace();
+            changeData(thuNhapDAO.tim(loai, tien, ngayBatDau, ngayKetThuc));
             }
         }
-    }
 }

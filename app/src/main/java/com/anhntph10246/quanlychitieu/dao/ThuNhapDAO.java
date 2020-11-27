@@ -154,7 +154,7 @@ public class ThuNhapDAO {
         cursor.close();
         return tongThu;
     }
-    public List<ThuNhap> tim(String loai , String tien , String ngaybatdau, String ngaykethuc) throws ParseException {
+    public List<ThuNhap> tim(String loai , String tien , String ngaybatdau, String ngaykethuc) {
         String sql = "";
         if (loai.equals("Tất cả")){
             sql = "Select * From ThuNhap";

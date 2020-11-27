@@ -142,4 +142,61 @@ public class ChiTieuDAO {
         cursor.close();
         return tongChi;
     }
+    public List<ChiTieu> tim(String loai , String tien , String ngaybatdau, String ngaykethuc){
+        String sql = "";
+        if (loai.equals("Tất cả")){
+            sql = "Select * From ChiTieu";
+            if (tien.isEmpty() == false){
+                sql +=" Where tienchi > " +tien;
+            }
+            if (ngaybatdau.isEmpty() == false){
+                if (tien.isEmpty() == false){
+                    sql += " And ngaychi >= '" + ngaybatdau +"'";
+                }else{
+                    sql += " Where ngaychi >= '" + ngaybatdau + "'";
+                }
+            }
+            if (ngaykethuc.isEmpty() == false){
+                if (tien.isEmpty() == false || ngaybatdau.isEmpty() == false) {
+                    sql += " And ngaychi <= '" + ngaykethuc + "'";
+                }else{
+                    sql += " Where ngaychi <= '" + ngaykethuc + "'";
+                }
+            }
+        }else{
+            sql = "Select * From ChiTieu Where maloaichi = '" +loai +"'";
+            if (tien.isEmpty() == false){
+                sql +=" And tienchi > " +tien;
+            }
+            if (ngaybatdau.isEmpty() == false){
+                sql += " And ngaychi >= '" + ngaybatdau +"'";
+            }
+            if (ngaykethuc.isEmpty() == false){
+                sql += " And ngaychi <= '" + ngaykethuc + "'";
+            }
+        }
+
+
+        List<ChiTieu> chiTieuList = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery( sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            ChiTieu chiTieu = null;
+            try {
+                chiTieu = new ChiTieu(cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getDouble(2),
+                        sdf.parse(cursor.getString(3)),
+                        cursor.getString(4));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            chiTieuList.add(chiTieu);
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return chiTieuList;
+    }
 }
