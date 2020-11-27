@@ -95,6 +95,6 @@ public class ThongKeThangFragment extends Fragment {
 
         tv_tongThang.setText(decimalFormat.format(tongThu) + " VND");
         tv_chiThang.setText(decimalFormat.format(tongChi) + " VND");
-        tv_duThang.setText(decimalFormat.format(tongThu - tongThu) + " VND");
+        tv_duThang.setText(decimalFormat.format(tongThu - tongChi) + " VND");
     }
 }
