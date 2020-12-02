@@ -13,8 +13,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class IconLoaiAdapter extends BaseAdapter {
-    Context context;
-    List<Integer> iconLoaiThuLists;
+    final Context context;
+    final List<Integer> iconLoaiThuLists;
 
     public IconLoaiAdapter(Context context, List<Integer> iconLoaiThuLists) {
         this.context = context;
@@ -35,7 +35,7 @@ public class IconLoaiAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    public class IconThuHolder{
+    public static class IconThuHolder{
         ImageView ivChonIcon;
     }
     @Override

@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.NumberTextWatcherForThousand;
 import com.anhntph10246.quanlychitieu.R;
@@ -25,7 +24,6 @@ import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.LoaiThu;
 import com.anhntph10246.quanlychitieu.model.ThuNhap;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,8 +31,8 @@ import java.util.List;
 
 
 public class TimThuNhapFragment extends Fragment {
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+    final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    final SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 
     Spinner spn_loaithu;
     ThuNhapAdapter thuNhapAdapter;
@@ -136,24 +134,24 @@ public class TimThuNhapFragment extends Fragment {
 
                 if (btn_ngaythustart.getText().toString().equals("Chọn ngày bắt đầu")
                 && btn_ngaythuend.getText().toString().equals("Chọn ngày kết thúc")) {
-                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timthu.getText().toString().trim().isEmpty()) {
                         tien =edt_timthu.getText().toString().trim().replace(",","");
                     }
                 }else if (btn_ngaythuend.getText().toString().equals("Chọn ngày kết thúc")) {
                     ngayBatDau = sdf1.format(calendar1.getTime());
-                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timthu.getText().toString().trim().isEmpty()) {
                         tien = edt_timthu.getText().toString().trim().replace(",","");
                     }
                 } else if (btn_ngaythustart.getText().toString().equals("Chọn ngày bắt đầu")) {
                     ngayKetThuc = sdf1.format(calendar2.getTime());
-                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timthu.getText().toString().trim().isEmpty()) {
                         tien = edt_timthu.getText().toString().trim().replace(",", "");
                     }
                 }
                 else {
                     ngayBatDau = sdf1.format(calendar1.getTime());
                     ngayKetThuc = sdf1.format(calendar2.getTime());
-                    if (edt_timthu.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timthu.getText().toString().trim().isEmpty()) {
                         tien = edt_timthu.getText().toString().trim().replace(",","");
                     }
                 }

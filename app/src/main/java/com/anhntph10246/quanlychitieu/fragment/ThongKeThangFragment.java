@@ -11,13 +11,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.R;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
 import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
-
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
@@ -26,11 +23,11 @@ public class ThongKeThangFragment extends Fragment {
     AppCompatSpinner spn_Nam,spn_Thang;
     TextView tv_tongThang,tv_chiThang,tv_duThang;
     View view;
-    String thang[] = {"1","2","3","4","5","6","7","8","9","10","11","12"};
-    String nam[] = {"2018","2019","2020","2021","2022","2023"};
+    final String[] thang = {"1","2","3","4","5","6","7","8","9","10","11","12"};
+    final String[] nam = {"2018","2019","2020","2021","2022","2023"};
     ChiTieuDAO chiTieuDAO;
     ThuNhapDAO thuNhapDAO;
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

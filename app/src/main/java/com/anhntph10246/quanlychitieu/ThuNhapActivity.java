@@ -28,8 +28,8 @@ import java.util.Calendar;
 import java.util.List;
 
 public class ThuNhapActivity extends AppCompatActivity {
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
     Calendar calendar;
     AppCompatSpinner spnLoaiThu;
     EditText edtTienThu, edtGhiChuThu;
@@ -137,8 +137,6 @@ public class ThuNhapActivity extends AppCompatActivity {
             tvNgayThu.setText(bundle.getString("ngay"));
             edtGhiChuThu.setText(bundle.getString("ghichu"));
             spnLoaiThu.setSelection(checkPositionSpn(bundle.getString("loai")));
-        }else{
-
         }
 
     }

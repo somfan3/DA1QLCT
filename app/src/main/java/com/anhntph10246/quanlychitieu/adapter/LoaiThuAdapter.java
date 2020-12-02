@@ -20,7 +20,7 @@ import com.anhntph10246.quanlychitieu.model.LoaiThu;
 import java.util.List;
 
 public class LoaiThuAdapter extends BaseAdapter {
-    Context context;
+    final Context context;
     List<LoaiThu> loaiThuList;
     LoaiThuDAO loaiThuDAO;
     public LoaiThuAdapter(Context context, List<LoaiThu> loaiThuList) {
@@ -41,7 +41,7 @@ public class LoaiThuAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    public class LoaiThuHolder{
+    public static class LoaiThuHolder{
         ImageView ivLoaiThu;
         TextView tvLoaiThu;
         ImageView ivSuaLoaiThu,ivXoaLoaiThu;

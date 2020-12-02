@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.adapter.LoaiChiSpnAdapter;
-import com.anhntph10246.quanlychitieu.adapter.LoaiThuSpnAdapter;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
 import com.anhntph10246.quanlychitieu.model.LoaiChi;
@@ -31,8 +29,8 @@ import java.util.Calendar;
 import java.util.List;
 
 public class ChiTieuActivity extends AppCompatActivity {
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
     Calendar calendar;
     AppCompatSpinner spnLoaiChi;
     EditText edtTienChi, edtGhiChuChi;
@@ -125,8 +123,6 @@ public class ChiTieuActivity extends AppCompatActivity {
             tvNgayChi.setText(bundle.getString("ngay"));
             edtGhiChuChi.setText(bundle.getString("ghichu"));
             spnLoaiChi.setSelection(checkPositionSpn(bundle.getString("loai")));
-        }else{
-
         }
     }
 

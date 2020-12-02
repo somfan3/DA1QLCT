@@ -25,7 +25,7 @@ import java.util.List;
 
 public class ThemLoaiChiActivity extends AppCompatActivity {
     TextInputLayout textInputLoaiChi;
-    ImageView ivIconChi, ivBack;
+    ImageView ivIconChi;
     GridView gvIcon;
     LoaiChiDAO loaiChiDAO;
     IconLoaiAdapter adapter;

@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.anhntph10246.quanlychitieu.database.DatabaseHelper;
 import com.anhntph10246.quanlychitieu.model.ChiTieu;
-import com.anhntph10246.quanlychitieu.model.ThuNhap;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,9 +15,9 @@ import java.util.Date;
 import java.util.List;
 
 public class ChiTieuDAO {
-    SQLiteDatabase db;
-    DatabaseHelper dbHelper;
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    final SQLiteDatabase db;
+    final DatabaseHelper dbHelper;
+    final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 
     public static final String TABLE_NAME = "ChiTieu";
@@ -111,7 +110,7 @@ public class ChiTieuDAO {
         return icon;
     }
     public double getTongChi(){
-        Double tongChi = 0.0;
+        Double tongChi=0.0;
         String sql = "Select Sum(" +COLUMN_TIEN_CHI  + ") From " +TABLE_NAME;
         Cursor cursor = db.rawQuery(sql,null);
         cursor.moveToFirst();
@@ -120,7 +119,7 @@ public class ChiTieuDAO {
         return tongChi;
     }
     public double getTongChiNam(String nam){
-        Double tongChi = 0.0;
+        Double tongChi;
         String sql = "Select Sum(" +COLUMN_TIEN_CHI  + ") From " +TABLE_NAME +" Where strftime('%Y'," + COLUMN_NGAY_CHI + ") " +
                 " = '" + nam + "'";
         Cursor cursor = db.rawQuery(sql,null);
@@ -133,7 +132,7 @@ public class ChiTieuDAO {
         if (Integer.parseInt(thang) < 10){
             thang = "0"+thang;
         }
-        Double tongChi = 0.0;
+        Double tongChi;
         String sql = "Select Sum(" +COLUMN_TIEN_CHI  + ") From " +TABLE_NAME +" Where strftime('%Y'," + COLUMN_NGAY_CHI + ") " +
                 " = '" + nam + "' And strftime('%m'," + COLUMN_NGAY_CHI + ") = '" + thang + "'" ;
         Cursor cursor = db.rawQuery(sql,null);
@@ -143,21 +142,21 @@ public class ChiTieuDAO {
         return tongChi;
     }
     public List<ChiTieu> tim(String loai , String tien , String ngaybatdau, String ngaykethuc){
-        String sql = "";
+        String sql;
         if (loai.equals("Tất cả")){
             sql = "Select * From ChiTieu";
-            if (tien.isEmpty() == false){
+            if (!tien.isEmpty()){
                 sql +=" Where tienchi > " +tien;
             }
-            if (ngaybatdau.isEmpty() == false){
-                if (tien.isEmpty() == false){
+            if (!ngaybatdau.isEmpty()){
+                if (!tien.isEmpty()){
                     sql += " And ngaychi >= '" + ngaybatdau +"'";
                 }else{
                     sql += " Where ngaychi >= '" + ngaybatdau + "'";
                 }
             }
-            if (ngaykethuc.isEmpty() == false){
-                if (tien.isEmpty() == false || ngaybatdau.isEmpty() == false) {
+            if (!ngaykethuc.isEmpty()){
+                if (!tien.isEmpty() || !ngaybatdau.isEmpty()) {
                     sql += " And ngaychi <= '" + ngaykethuc + "'";
                 }else{
                     sql += " Where ngaychi <= '" + ngaykethuc + "'";
@@ -165,13 +164,13 @@ public class ChiTieuDAO {
             }
         }else{
             sql = "Select * From ChiTieu Where maloaichi = '" +loai +"'";
-            if (tien.isEmpty() == false){
+            if (!tien.isEmpty()){
                 sql +=" And tienchi > " +tien;
             }
-            if (ngaybatdau.isEmpty() == false){
+            if (!ngaybatdau.isEmpty()){
                 sql += " And ngaychi >= '" + ngaybatdau +"'";
             }
-            if (ngaykethuc.isEmpty() == false){
+            if (!ngaykethuc.isEmpty()){
                 sql += " And ngaychi <= '" + ngaykethuc + "'";
             }
         }
@@ -198,5 +197,32 @@ public class ChiTieuDAO {
         cursor.close();
 
         return chiTieuList;
+    }
+    public List<String> getMoth(String nam){
+        List<String> thangList = new ArrayList<>();
+
+        String sql = "Select DISTINCT strftime('%m',ngaychi) From ChiTieu where strftime('%Y',ngaychi) = '" +nam + "' order by strftime('%m',ngaychi)";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            thangList.add(cursor.getString(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return thangList;
+    }
+    public List getMoneyInMoth(String nam){
+        List<Double> tienThuList = new ArrayList<>();
+
+        String sql = "Select sum(tienchi) from ChiTieu where strftime ('%Y',ngaychi) = '" +nam + "' group by strftime('%m',ngaychi) order by strftime('%m',ngaychi)";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            tienThuList.add(cursor.getDouble(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return tienThuList;
+
     }
 }

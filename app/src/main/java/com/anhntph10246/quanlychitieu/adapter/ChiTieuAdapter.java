@@ -15,25 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.anhntph10246.quanlychitieu.ChiTieuActivity;
 import com.anhntph10246.quanlychitieu.R;
-import com.anhntph10246.quanlychitieu.ThuNhapActivity;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
-import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
-import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.ChiTieu;
-import com.anhntph10246.quanlychitieu.model.ThuNhap;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class ChiTieuAdapter extends RecyclerView.Adapter<ChiTieuAdapter.ChiTieuHolder> {
-    Context context;
+    final Context context;
     List<ChiTieu> chiTieuList;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     ChiTieuDAO chiTieuDAO;
     LoaiChiDAO loaiChiDAO;
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
 
     public ChiTieuAdapter(Context context, List<ChiTieu> chiTieuList) {
         this.context = context;
@@ -89,10 +85,13 @@ public class ChiTieuAdapter extends RecyclerView.Adapter<ChiTieuAdapter.ChiTieuH
         return chiTieuList.size();
     }
 
-    public class ChiTieuHolder extends RecyclerView.ViewHolder {
-        ImageView iv_Chi,iv_SuaChi;
-        TextView tv_LoaiChi,tv_NgayChi,tv_GhiChuChi;
-        TextView tv_TienChi;
+    public static class ChiTieuHolder extends RecyclerView.ViewHolder {
+        final ImageView iv_Chi;
+        final ImageView iv_SuaChi;
+        final TextView tv_LoaiChi;
+        final TextView tv_NgayChi;
+        final TextView tv_GhiChuChi;
+        final TextView tv_TienChi;
         public ChiTieuHolder(@NonNull View itemView) {
             super(itemView);
             iv_Chi = itemView.findViewById(R.id.iv_Loai);

@@ -10,7 +10,6 @@ import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
 import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
-import com.anhntph10246.quanlychitieu.model.LoaiChi;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context) {

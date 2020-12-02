@@ -10,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anhntph10246.quanlychitieu.adapter.ViewPagerAdapter;
-import com.anhntph10246.quanlychitieu.fragment.ChiFragment;
-import com.anhntph10246.quanlychitieu.fragment.ThuFragment;
 import com.anhntph10246.quanlychitieu.fragment.TimChiTieuFragment;
 import com.anhntph10246.quanlychitieu.fragment.TimThuNhapFragment;
 import com.google.android.material.tabs.TabLayout;

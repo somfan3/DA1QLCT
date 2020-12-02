@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaiChiDAO {
-    SQLiteDatabase db;
-    DatabaseHelper dbHelper;
+    final SQLiteDatabase db;
+    final DatabaseHelper dbHelper;
 
     public static final String TABLE_NAME = "LoaiChi";
     public static final String COLUMN_MA_LOAI_CHI = "maloaichi";

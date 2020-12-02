@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.R;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
@@ -20,7 +19,7 @@ public class ThongKeAllFragment extends Fragment {
     TextView tv_tongAll,tv_chiAll,tv_duAll;
     ThuNhapDAO thuNhapDAO;
     ChiTieuDAO chiTieuDAO;
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
 
     View view;
 

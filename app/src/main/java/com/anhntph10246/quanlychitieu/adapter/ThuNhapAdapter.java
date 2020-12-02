@@ -2,7 +2,6 @@ package com.anhntph10246.quanlychitieu.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,13 +25,13 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class ThuNhapAdapter extends RecyclerView.Adapter<ThuNhapAdapter.ThuNhapHolder> {
-    Context context;
+public class    ThuNhapAdapter extends RecyclerView.Adapter<ThuNhapAdapter.ThuNhapHolder> {
+    final Context context;
     List<ThuNhap> thuNhapList;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     ThuNhapDAO thuNhapDAO;
     LoaiThuDAO loaiThuDAO;
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
     NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
     public ThuNhapAdapter(Context context, List<ThuNhap> thuNhapList) {
         this.context = context;
@@ -88,10 +87,13 @@ public class ThuNhapAdapter extends RecyclerView.Adapter<ThuNhapAdapter.ThuNhapH
         return thuNhapList.size();
     }
 
-    public class ThuNhapHolder extends RecyclerView.ViewHolder {
-        ImageView iv_Thu,iv_SuaThu;
-        TextView tv_LoaiThu,tv_NgayThu,tv_GhiChuThu;
-        TextView tv_TienThu;
+    public static class ThuNhapHolder extends RecyclerView.ViewHolder {
+        final ImageView iv_Thu;
+        final ImageView iv_SuaThu;
+        final TextView tv_LoaiThu;
+        final TextView tv_NgayThu;
+        final TextView tv_GhiChuThu;
+        final TextView tv_TienThu;
         public ThuNhapHolder(@NonNull View itemView) {
             super(itemView);
             iv_Thu = itemView.findViewById(R.id.iv_Loai);

@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.R;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
@@ -26,8 +25,8 @@ public class ThongKeNamFragment extends Fragment {
     ChiTieuDAO chiTieuDAO;
     AppCompatSpinner spn_nam;
     TextView tv_tongNam, tv_chiNam, tv_duNam;
-    String nam[] = {"2018","2019","2020","2021","2022","2023"};
-    DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
+    final String[] nam = {"2018","2019","2020","2021","2022","2023"};
+    final DecimalFormat decimalFormat = new DecimalFormat("###,###.###");
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

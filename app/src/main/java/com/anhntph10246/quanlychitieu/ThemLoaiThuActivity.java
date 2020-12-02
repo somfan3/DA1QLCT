@@ -130,14 +130,6 @@ public class ThemLoaiThuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public int checkUsedLoai(String maloai){
-        for (int i = 0 ; i < thuNhapDAO.getAllThuNhap().size() ; i++){
-            if (maloai.equals(thuNhapDAO.getAllThuNhap().get(i).getMaLoai())){
-                return -1; // used
-            }
-        }
-        return 1;
-    }
     public void setupIcon() {
         iconLoaiLists = new ArrayList<>();
         iconLoaiLists.add(R.drawable.ic_luong);

@@ -19,17 +19,11 @@ import com.anhntph10246.quanlychitieu.NumberTextWatcherForThousand;
 import com.anhntph10246.quanlychitieu.R;
 import com.anhntph10246.quanlychitieu.adapter.ChiTieuAdapter;
 import com.anhntph10246.quanlychitieu.adapter.LoaiChiSpnAdapter;
-import com.anhntph10246.quanlychitieu.adapter.ThuNhapAdapter;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
-import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
-import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.ChiTieu;
 import com.anhntph10246.quanlychitieu.model.LoaiChi;
-import com.anhntph10246.quanlychitieu.model.LoaiThu;
-import com.anhntph10246.quanlychitieu.model.ThuNhap;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,8 +31,8 @@ import java.util.List;
 
 
 public class TimChiTieuFragment extends Fragment {
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+    final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    final SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 
     Spinner spn_loaichi;
     ChiTieuAdapter chiTieuAdapter;
@@ -142,24 +136,24 @@ public class TimChiTieuFragment extends Fragment {
 
                 if (btn_ngaychistart.getText().toString().equals("Chọn ngày bắt đầu")
                         && btn_ngaychiend.getText().toString().equals("Chọn ngày kết thúc")) {
-                    if (edt_timchi.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timchi.getText().toString().trim().isEmpty()) {
                         tien =edt_timchi.getText().toString().trim().replace(",","");
                     }
                 }else if (btn_ngaychiend.getText().toString().equals("Chọn ngày kết thúc")) {
                     ngayBatDau = sdf1.format(calendar1.getTime());
-                    if (edt_timchi.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timchi.getText().toString().trim().isEmpty()) {
                         tien = edt_timchi.getText().toString().trim().replace(",","");
                     }
                 } else if (btn_ngaychistart.getText().toString().equals("Chọn ngày bắt đầu")) {
                     ngayKetThuc = sdf1.format(calendar2.getTime());
-                    if (edt_timchi.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timchi.getText().toString().trim().isEmpty()) {
                         tien = edt_timchi.getText().toString().trim().replace(",", "");
                     }
                 }
                 else {
                     ngayBatDau = sdf1.format(calendar1.getTime());
                     ngayKetThuc = sdf1.format(calendar2.getTime());
-                    if (edt_timchi.getText().toString().trim().isEmpty() == false) {
+                    if (!edt_timchi.getText().toString().trim().isEmpty()) {
                         tien = edt_timchi.getText().toString().trim().replace(",","");
                     }
                 }

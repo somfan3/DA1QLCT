@@ -15,7 +15,7 @@ import java.util.List;
 
 public class LoaiThuSpnAdapter extends BaseAdapter {
     List<LoaiThu> loaiThuList;
-    Context context;
+    final Context context;
     public LoaiThuSpnAdapter(List<LoaiThu> loaiThuList, Context context) {
         this.loaiThuList = loaiThuList;
         this.context = context;
@@ -34,7 +34,7 @@ public class LoaiThuSpnAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    public class LoaiThuSpnHolder{
+    public static class LoaiThuSpnHolder{
         ImageView ivLoai;
         TextView tvLoai;
     }

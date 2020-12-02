@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class NumberTextWatcherForThousand implements TextWatcher {
 
-    EditText editText;
+    final EditText editText;
 
 
     public NumberTextWatcherForThousand(EditText editText) {

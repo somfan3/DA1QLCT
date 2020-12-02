@@ -13,18 +13,14 @@ import android.widget.Toast;
 
 import com.anhntph10246.quanlychitieu.R;
 import com.anhntph10246.quanlychitieu.ThemLoaiChiActivity;
-import com.anhntph10246.quanlychitieu.ThemLoaiThuActivity;
 import com.anhntph10246.quanlychitieu.dao.ChiTieuDAO;
 import com.anhntph10246.quanlychitieu.dao.LoaiChiDAO;
-import com.anhntph10246.quanlychitieu.dao.LoaiThuDAO;
-import com.anhntph10246.quanlychitieu.dao.ThuNhapDAO;
 import com.anhntph10246.quanlychitieu.model.LoaiChi;
-import com.anhntph10246.quanlychitieu.model.LoaiThu;
 
 import java.util.List;
 
 public class LoaiChiAdapter extends BaseAdapter {
-    Context context;
+    final Context context;
     List<LoaiChi> loaiChiList;
     LoaiChiDAO loaiChiDAO;
     public LoaiChiAdapter(Context context, List<LoaiChi> loaiChiList) {
@@ -45,7 +41,7 @@ public class LoaiChiAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    public class LoaiChiHolder{
+    public static class LoaiChiHolder{
         ImageView ivLoaiChi;
         TextView tvLoaiChi;
         ImageView ivSuaLoaiChi,ivXoaLoaiChi;

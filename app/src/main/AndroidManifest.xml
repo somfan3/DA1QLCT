@@ -9,22 +9,22 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BieuDoActivity"></activity>
-        <activity android:name=".ThemLoaiChiActivity" />
-        <activity android:name=".ListLoaiChiActivity" />
-        <activity android:name=".ChiTieuActivity" />
-        <activity android:name=".TimKiemActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".BieuDoActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ThemLoaiChiActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ListLoaiChiActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ChiTieuActivity" android:screenOrientation="portrait" />
+        <activity android:name=".TimKiemActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".SplashScreenActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ThemLoaiThuActivity" />
-        <activity android:name=".ListLoaiThuActivity" />
-        <activity android:name=".ThuNhapActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ThemLoaiThuActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ListLoaiThuActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ThuNhapActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

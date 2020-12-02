@@ -10,13 +10,12 @@ import android.widget.TextView;
 
 import com.anhntph10246.quanlychitieu.R;
 import com.anhntph10246.quanlychitieu.model.LoaiChi;
-import com.anhntph10246.quanlychitieu.model.LoaiThu;
 
 import java.util.List;
 
 public class LoaiChiSpnAdapter  extends BaseAdapter {
     List<LoaiChi> loaiChiList;
-    Context context;
+    final Context context;
     public LoaiChiSpnAdapter(List<LoaiChi> loaiChiList, Context context) {
         this.loaiChiList = loaiChiList;
         this.context = context;
@@ -35,7 +34,7 @@ public class LoaiChiSpnAdapter  extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    public class LoaiChiSpnHolder{
+    public static class LoaiChiSpnHolder{
         ImageView ivLoai;
         TextView tvLoai;
     }

@@ -15,9 +15,9 @@ import java.util.Date;
 import java.util.List;
 
 public class ThuNhapDAO {
-    SQLiteDatabase db;
-    DatabaseHelper dbHelper;
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    final SQLiteDatabase db;
+    final DatabaseHelper dbHelper;
+    final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 
     public static final String TABLE_NAME = "ThuNhap";
@@ -158,18 +158,18 @@ public class ThuNhapDAO {
         String sql = "";
         if (loai.equals("Tất cả")){
             sql = "Select * From ThuNhap";
-            if (tien.isEmpty() == false){
+            if (!tien.isEmpty()){
                 sql +=" Where tienthu > " +tien;
             }
-            if (ngaybatdau.isEmpty() == false){
-                if (tien.isEmpty() == false){
+            if (!ngaybatdau.isEmpty()){
+                if (!tien.isEmpty()){
                     sql += " And ngaythu >= '" + ngaybatdau +"'";
                 }else{
                     sql += " Where ngaythu >= '" + ngaybatdau + "'";
                 }
             }
-            if (ngaykethuc.isEmpty() == false){
-                if (tien.isEmpty() == false || ngaybatdau.isEmpty() == false) {
+            if (!ngaykethuc.isEmpty()){
+                if (!tien.isEmpty() || !ngaybatdau.isEmpty()) {
                     sql += " And ngaythu <= '" + ngaykethuc + "'";
                 }else{
                     sql += " Where ngaythu <= '" + ngaykethuc + "'";
@@ -177,13 +177,13 @@ public class ThuNhapDAO {
             }
         }else{
             sql = "Select * From ThuNhap Where maloaithu = '" +loai +"'";
-            if (tien.isEmpty() == false){
+            if (!tien.isEmpty()){
                 sql +=" And tienthu > " +tien;
             }
-            if (ngaybatdau.isEmpty() == false){
+            if (!ngaybatdau.isEmpty()){
                 sql += " And ngaythu >= '" + ngaybatdau +"'";
             }
-            if (ngaykethuc.isEmpty() == false){
+            if (!ngaykethuc.isEmpty()){
                 sql += " And ngaythu <= '" + ngaykethuc + "'";
             }
         }
@@ -210,6 +210,33 @@ public class ThuNhapDAO {
 
 
         return thuNhapList;
+    }
+    public List<String> getMoth(String nam){
+        List<String> thangList = new ArrayList<>();
+
+        String sql = "Select DISTINCT strftime('%m',ngaythu) From ThuNhap where strftime('%Y',ngaythu) = '" +nam + "' order by strftime('%m',ngaythu)";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            thangList.add(cursor.getString(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return thangList;
+    }
+    public List getMoneyInMoth(String nam){
+        List<Double> tienThuList = new ArrayList<>();
+
+        String sql = "Select sum(tienthu) from ThuNhap where strftime ('%Y',ngaythu) = '" +nam + "' group by strftime('%m',ngaythu) order by strftime('%m',ngaythu)";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            tienThuList.add(cursor.getDouble(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return tienThuList;
+
     }
 }
 
