@@ -55,13 +55,13 @@
         android:textColor="#59BFDF"
         android:textSize="20sp" />
         <EditText
-            android:maxLength="13"
             android:id="@+id/edtTienThu"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Nhập"
+            android:maxLength="13"
             android:inputType="numberDecimal"
             android:layout_alignLeft="@id/spnLoaiThu"
             android:layout_alignRight="@id/spnLoaiThu"
