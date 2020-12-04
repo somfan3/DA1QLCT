@@ -43,8 +43,8 @@ public class BieuDoChiFragment extends Fragment {
         initView();
         setupSpn();
         setupChart();
-        String y = nam[spn_nam.getSelectedItemPosition()];
-        pie.data(dataEntryList(chiTieuDAO.getMoth(y),chiTieuDAO.getMoneyInMoth(y)));
+
+
         return view;
     }
 
@@ -57,12 +57,28 @@ public class BieuDoChiFragment extends Fragment {
         spn_nam.setAdapter(arrayAdapter);
         spn_nam.setSelection(2);
 
+        spn_nam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                setupPie();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+    public void setupPie(){
+        pie.data(dataEntryList(chiTieuDAO.getMoth(nam[spn_nam.getSelectedItemPosition()]),
+                chiTieuDAO.getMoneyInMoth(nam[spn_nam.getSelectedItemPosition()])));
     }
     public List<DataEntry> dataEntryList(List<String> thangList, List<Double> tienList){
         List<DataEntry> dataEntryList;
         dataEntryList= new ArrayList<>();
         for (int i = 0 ; i < thangList.size() ; i++){
-            dataEntryList.add(new ValueDataEntry("T1",3212321));
+            dataEntryList.add(new ValueDataEntry("T" + thangList.get(i),tienList.get(i)));
         }
         return dataEntryList;
     }

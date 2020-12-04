@@ -38,8 +38,8 @@ public class BieuDoThuFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_bieu_do_thu, container, false);
         thuNhapDAO = new ThuNhapDAO(getContext());
         initView();
-        setupSpn();
         setupChart();
+        setupSpn();
         setDataPie();
 
         return view;
@@ -49,12 +49,11 @@ public class BieuDoThuFragment extends Fragment {
         spn_nam.setAdapter(arrayAdapter);
         spn_nam.setSelection(2);
 
-
-
         spn_nam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                setDataPie();
+
             }
 
             @Override
@@ -63,16 +62,17 @@ public class BieuDoThuFragment extends Fragment {
             }
         });
     }
-    public void setDataPie(){
-        pie.data(dataEntryList(thuNhapDAO.getMoth(nam[spn_nam.getSelectedItemPosition()]),
+    public void setDataPie() {
+        pie.data(addDataEntryList(thuNhapDAO.getMoth(nam[spn_nam.getSelectedItemPosition()]),
                 thuNhapDAO.getMoneyInMoth(nam[spn_nam.getSelectedItemPosition()])));
+
     }
 
     public void initView(){
         spn_nam = view.findViewById(R.id.spn_bdthunam);
         chart = view.findViewById(R.id.chart_thu);
     }
-    public List<DataEntry> dataEntryList(List<String> thangList,List<Double> tienList){
+    public List<DataEntry> addDataEntryList(List<String> thangList,List<Double> tienList){
         List<DataEntry> dataEntryList;
         dataEntryList= new ArrayList<>();
         for (int i = 0 ; i < thangList.size() ; i++){
