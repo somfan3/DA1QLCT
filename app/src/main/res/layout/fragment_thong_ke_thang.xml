@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ThongKeThangFragment">
+    tools:context="vn.poly.quanlychitieu.fragment.ThongKeThangFragment">
 
     <LinearLayout
         android:layout_marginRight="8dp"

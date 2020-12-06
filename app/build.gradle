@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.anhntph10246.quanlychitieu"
+        applicationId "vn.poly.quanlychitieu"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
