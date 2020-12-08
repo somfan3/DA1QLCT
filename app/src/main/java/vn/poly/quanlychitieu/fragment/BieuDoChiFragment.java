@@ -86,7 +86,7 @@ public class BieuDoChiFragment extends Fragment {
     public void setupChart(){
         myPieData = new ArrayList<>();
 
-        PieDataSet pieDataSet = new PieDataSet(myPieData,"Tháng");
+        PieDataSet pieDataSet = new PieDataSet(myPieData,"");
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         pieDataSet.setValueTextSize(16f);
 
