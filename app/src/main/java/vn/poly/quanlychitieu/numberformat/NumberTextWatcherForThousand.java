@@ -1,4 +1,4 @@
-package vn.poly.quanlychitieu;
+package vn.poly.quanlychitieu.numberformat;
 
 import android.text.Editable;
 import android.text.TextWatcher;

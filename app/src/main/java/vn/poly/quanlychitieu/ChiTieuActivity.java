@@ -17,12 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import vn.poly.quanlychitieu.R;
-
 import vn.poly.quanlychitieu.adapter.LoaiChiSpnAdapter;
 import vn.poly.quanlychitieu.dao.ChiTieuDAO;
 import vn.poly.quanlychitieu.dao.LoaiChiDAO;
 import vn.poly.quanlychitieu.model.LoaiChi;
+import vn.poly.quanlychitieu.numberformat.NumberTextWatcherForThousand;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -94,8 +93,21 @@ public class ChiTieuActivity extends AppCompatActivity {
 
         if (loaiChiList.size() < 1){
             LoaiChi loaichi1 = new LoaiChi("Tiền điện",R.drawable.ic_tien_dien);
+            LoaiChi loaichi2 = new LoaiChi("Ăn uống",R.drawable.ic_an_uong);
+            LoaiChi loaichi3 = new LoaiChi("Tiền nhà ",R.drawable.ic_thue_nha);
+            LoaiChi loaichi4 = new LoaiChi("Mua sắm",R.drawable.ic_mua_sam);
+            LoaiChi loaichi5 = new LoaiChi("Khác",R.drawable.ic_other);
+
             loaiChiList.add(loaichi1);
             loaiChiDAO.insertLoaiChi(loaichi1);
+            loaiChiList.add(loaichi2);
+            loaiChiDAO.insertLoaiChi(loaichi2);
+            loaiChiList.add(loaichi3);
+            loaiChiDAO.insertLoaiChi(loaichi3);
+            loaiChiList.add(loaichi4);
+            loaiChiDAO.insertLoaiChi(loaichi4);
+            loaiChiList.add(loaichi5);
+            loaiChiDAO.insertLoaiChi(loaichi5);
         }
         adapter = new LoaiChiSpnAdapter(loaiChiList,this);
 

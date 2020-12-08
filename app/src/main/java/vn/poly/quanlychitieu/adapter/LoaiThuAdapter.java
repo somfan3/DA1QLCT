@@ -73,9 +73,13 @@ public class LoaiThuAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 if (checkUsedLoai(loaiThu.getMaLoai()) > 0){
-                    if (loaiThuDAO.deleteLoaiThu(loaiThu.getMaLoai()) > 0){
-                        loaiThuList.remove(loaiThu);
-                        notifyDataSetChanged();
+                    if (loaiThuList.size() == 1){
+                        Toast.makeText(context,"Không thể xóa",Toast.LENGTH_SHORT).show();
+                    }else {
+                        if (loaiThuDAO.deleteLoaiThu(loaiThu.getMaLoai()) > 0){
+                            loaiThuList.remove(loaiThu);
+                            notifyDataSetChanged();
+                        }
                     }
                 }else{
                     Toast.makeText(context,"Loại thu đã được sử dụng không thể xóa",Toast.LENGTH_SHORT).show();

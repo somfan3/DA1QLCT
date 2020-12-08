@@ -15,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import vn.poly.quanlychitieu.R;
-
 import vn.poly.quanlychitieu.adapter.IconLoaiAdapter;
 import vn.poly.quanlychitieu.dao.LoaiThuDAO;
 import vn.poly.quanlychitieu.dao.ThuNhapDAO;
@@ -160,7 +158,7 @@ public class ThemLoaiThuActivity extends AppCompatActivity {
         iconLoaiLists.add(R.drawable.ic_quan_ao);
         iconLoaiLists.add(R.drawable.ic_rut_tien);
         iconLoaiLists.add(R.drawable.ic_sach);
-        iconLoaiLists.add(R.drawable.ic_sua_chu_nha_cua);
+        iconLoaiLists.add(R.drawable.ic_nha);
         iconLoaiLists.add(R.drawable.ic_suc_khoe);
         iconLoaiLists.add(R.drawable.ic_tang_le);
         iconLoaiLists.add(R.drawable.ic_taxi);
@@ -171,9 +169,10 @@ public class ThemLoaiThuActivity extends AppCompatActivity {
         iconLoaiLists.add(R.drawable.ic_thuong);
         iconLoaiLists.add(R.drawable.ic_tro_choi);
         iconLoaiLists.add(R.drawable.ic_tu_thien);
-//        iconLoaiLists.add(R.drawable.ic_vat_nuoi);
+        iconLoaiLists.add(R.drawable.ic_vat_nuoi);
         iconLoaiLists.add(R.drawable.ic_vi_tien);
         iconLoaiLists.add(R.drawable.ic_xang_dau);
+        iconLoaiLists.add(R.drawable.ic_other);
         adapter = new IconLoaiAdapter(this, iconLoaiLists);
         gvIcon.setAdapter(adapter);
         gvIcon.setOnItemClickListener(new AdapterView.OnItemClickListener() {

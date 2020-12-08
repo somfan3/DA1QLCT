@@ -15,7 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import vn.poly.quanlychitieu.NumberTextWatcherForThousand;
+import vn.poly.quanlychitieu.numberformat.NumberTextWatcherForThousand;
 import vn.poly.quanlychitieu.R;
 import vn.poly.quanlychitieu.adapter.LoaiThuSpnAdapter;
 import vn.poly.quanlychitieu.adapter.ThuNhapAdapter;

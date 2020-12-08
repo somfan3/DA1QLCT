@@ -146,7 +146,7 @@ public class ChiTieuDAO {
         if (loai.equals("Tất cả")){
             sql = "Select * From ChiTieu";
             if (!tien.isEmpty()){
-                sql +=" Where tienchi > " +tien;
+                sql +=" Where tienchi >= " +tien;
             }
             if (!ngaybatdau.isEmpty()){
                 if (!tien.isEmpty()){
@@ -165,7 +165,7 @@ public class ChiTieuDAO {
         }else{
             sql = "Select * From ChiTieu Where maloaichi = '" +loai +"'";
             if (!tien.isEmpty()){
-                sql +=" And tienchi > " +tien;
+                sql +=" And tienchi >= " +tien;
             }
             if (!ngaybatdau.isEmpty()){
                 sql += " And ngaychi >= '" + ngaybatdau +"'";

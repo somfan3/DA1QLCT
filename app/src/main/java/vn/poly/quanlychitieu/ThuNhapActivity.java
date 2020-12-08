@@ -17,12 +17,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import vn.poly.quanlychitieu.R;
-
 import vn.poly.quanlychitieu.adapter.LoaiThuSpnAdapter;
 import vn.poly.quanlychitieu.dao.LoaiThuDAO;
 import vn.poly.quanlychitieu.dao.ThuNhapDAO;
+import vn.poly.quanlychitieu.model.LoaiChi;
 import vn.poly.quanlychitieu.model.LoaiThu;
+import vn.poly.quanlychitieu.numberformat.NumberTextWatcherForThousand;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -89,8 +89,21 @@ public class ThuNhapActivity extends AppCompatActivity {
 
         if (loaiThuList.size() < 1){
             LoaiThu loaiThu1 = new LoaiThu("Tiền lương",R.drawable.ic_luong);
+            LoaiThu loaiThu2 = new LoaiThu("Cho thuê nhà",R.drawable.ic_nha);
+            LoaiThu loaiThu3 = new LoaiThu("Lãi xuất",R.drawable.ic_lai);
+            LoaiThu loaiThu4 = new LoaiThu("Trợ cấp",R.drawable.ic_duoc_tang);
+            LoaiThu loaiThu5 = new LoaiThu("Khác",R.drawable.ic_other);
+
             loaiThuList.add(loaiThu1);
             loaiThuDAO.insertLoaiThu(loaiThu1);
+            loaiThuList.add(loaiThu2);
+            loaiThuDAO.insertLoaiThu(loaiThu2);
+            loaiThuList.add(loaiThu3);
+            loaiThuDAO.insertLoaiThu(loaiThu3);
+            loaiThuList.add(loaiThu4);
+            loaiThuDAO.insertLoaiThu(loaiThu4);
+            loaiThuList.add(loaiThu5);
+            loaiThuDAO.insertLoaiThu(loaiThu5);
         }
 
         loaiThuSpnAdapter = new LoaiThuSpnAdapter(loaiThuList,this);

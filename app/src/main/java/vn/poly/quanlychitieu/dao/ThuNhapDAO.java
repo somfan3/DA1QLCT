@@ -159,7 +159,7 @@ public class ThuNhapDAO {
         if (loai.equals("Tất cả")){
             sql = "Select * From ThuNhap";
             if (!tien.isEmpty()){
-                sql +=" Where tienthu > " +tien;
+                sql +=" Where tienthu >= " +tien;
             }
             if (!ngaybatdau.isEmpty()){
                 if (!tien.isEmpty()){
@@ -178,7 +178,7 @@ public class ThuNhapDAO {
         }else{
             sql = "Select * From ThuNhap Where maloaithu = '" +loai +"'";
             if (!tien.isEmpty()){
-                sql +=" And tienthu > " +tien;
+                sql +=" And tienthu >=   " +tien;
             }
             if (!ngaybatdau.isEmpty()){
                 sql += " And ngaythu >= '" + ngaybatdau +"'";

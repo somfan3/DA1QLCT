@@ -73,9 +73,13 @@ public class LoaiChiAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 if (checkUsedLoai(loaiChi.getMaLoai()) > 0){
-                    if (loaiChiDAO.deleteLoaiChi(loaiChi.getMaLoai()) > 0){
-                        loaiChiList.remove(loaiChi);
-                        notifyDataSetChanged();
+                    if(loaiChiList.size() == 1){
+                        Toast.makeText(context,"Không thể xóa",Toast.LENGTH_SHORT).show();
+                    }else {
+                        if (loaiChiDAO.deleteLoaiChi(loaiChi.getMaLoai()) > 0){
+                            loaiChiList.remove(loaiChi);
+                            notifyDataSetChanged();
+                        }
                     }
                 }else{
                     Toast.makeText(context,"Loại chi đã được sử dụng không thể xóa",Toast.LENGTH_SHORT).show();
