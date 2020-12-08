@@ -115,6 +115,7 @@ public class ThemLoaiChiActivity extends AppCompatActivity {
         iconLoaiLists.add(R.drawable.ic_thiet_bi_dien_tu);
         iconLoaiLists.add(R.drawable.ic_thue_nha);
         iconLoaiLists.add(R.drawable.ic_thuoc);
+        iconLoaiLists.add(R.drawable.ic_duoc_tang);
         iconLoaiLists.add(R.drawable.ic_thuong);
         iconLoaiLists.add(R.drawable.ic_tro_choi);
         iconLoaiLists.add(R.drawable.ic_tu_thien);
