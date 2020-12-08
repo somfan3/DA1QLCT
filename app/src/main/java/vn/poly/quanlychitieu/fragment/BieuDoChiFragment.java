@@ -1,5 +1,6 @@
 package vn.poly.quanlychitieu.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -86,16 +87,32 @@ public class BieuDoChiFragment extends Fragment {
     public void setupChart(){
         myPieData = new ArrayList<>();
 
-        PieDataSet pieDataSet = new PieDataSet(myPieData,"");
-        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        pieDataSet.setValueTextSize(16f);
+        PieDataSet dataSet = new PieDataSet(myPieData,"");
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataSet.setValueTextColor(Color.BLACK);
+        chart_chi.setEntryLabelColor(Color.BLACK);
+        dataSet.setValueTextSize(13f);
 
-        PieData pieData = new PieData(pieDataSet);
+        PieData pieData = new PieData(dataSet);
+        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        dataSet.setValueLinePart1OffsetPercentage(100f);
+        dataSet.setValueLinePart1Length(0.5f);
+
+
 
         chart_chi.setData(pieData);
+        chart_chi.getDescription().setEnabled(false);
 
-        Legend legend = chart_chi.getLegend();
-        legend.setTextSize(16f);
+        chart_chi.setExtraOffsets(25.f, 0.f, 25.f, 0.f);
+
+        Legend l = chart_chi.getLegend();
+        l.setTextSize(16f);
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        l.setWordWrapEnabled(true);
+        l.setDrawInside(false);
 
     }
     public void setDataChart(){
