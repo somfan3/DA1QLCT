@@ -2,99 +2,107 @@ package vn.poly.quanlychitieu.fragment;
 
 import android.os.Bundle;
 
-import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.whiteelephant.monthpicker.MonthPickerDialog;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 import vn.poly.quanlychitieu.R;
 import vn.poly.quanlychitieu.dao.ThuNhapDAO;
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
-import com.anychart.enums.Align;
-import com.anychart.enums.LegendLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BieuDoThuFragment extends Fragment {
-    AppCompatSpinner spn_nam;
-    AnyChartView chart;
-    final String[] nam = {"2018","2019","2020","2021","2022","2023"};
+    Button btn_bdthunam;
+    PieChart chart_thu;
     ThuNhapDAO thuNhapDAO;
-
     View view;
+    ArrayList<PieEntry> myPieData;
+
+    String y = "";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bieu_do_thu, container, false);
-        thuNhapDAO = new ThuNhapDAO(getContext());
+
+        thuNhapDAO = new ThuNhapDAO(getActivity());
         initView();
         setupChart();
-        setupSpn();
-        setDataPie();
 
-        return view;
-    }
-    public void setupSpn(){
-         ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item,nam);
-        spn_nam.setAdapter(arrayAdapter);
-        spn_nam.setSelection(2);
-
-        spn_nam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        btn_bdthunam.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               setDataPie();
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                MonthPickerDialog.Builder builder = new MonthPickerDialog.Builder(getActivity(),
+                        new MonthPickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(int selectedMonth, int selectedYear) {
+                                y = String.valueOf(selectedYear);
+                                if (thuNhapDAO.getMoneyInMoth(y).size() == 0){
+                                    Toast.makeText(getContext(),"Năm " +y + " không có dữ liệu",Toast.LENGTH_SHORT).show();
+                                }else {
+                                    btn_bdthunam.setText(y);
+                                    setDataChart();
 
-            }
+                                }
+                            }
+                        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH));
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+                builder.setMinYear(2015).
+                        setActivatedYear(calendar.get(Calendar.YEAR)).
+                        setMaxYear(2030).
+                        setTitle("Select year").
+                        showYearOnly()
+                        .build().show();
 
             }
         });
-    }
-    public void setDataPie() {
-        pie.data(addDataEntryList(thuNhapDAO.getMoth(nam[spn_nam.getSelectedItemPosition()]),
-                thuNhapDAO.getMoneyInMoth(nam[spn_nam.getSelectedItemPosition()])));
-    }
 
+
+        return view;
+
+    }
     public void initView(){
-        spn_nam = view.findViewById(R.id.spn_bdthunam);
-        chart = view.findViewById(R.id.chart_thu);
+        btn_bdthunam = view.findViewById(R.id.btn_bdthunam);
+        chart_thu = view.findViewById(R.id.chart_thu);
     }
-    public List<DataEntry> addDataEntryList(List<String> thangList,List<Double> tienList){
-        List<DataEntry> dataEntryList;
-        dataEntryList= new ArrayList<>();
-        for (int i = 0 ; i < thangList.size() ; i++){
-            dataEntryList.add(new ValueDataEntry("T"+thangList.get(i),tienList.get(i)));
-        }
-        return dataEntryList;
-    }
-    Pie pie;
     public void setupChart(){
-        pie = AnyChart.pie();
+        myPieData = new ArrayList<>();
 
-        pie.labels().position("outside");
+        PieDataSet pieDataSet = new PieDataSet(myPieData,"");
+        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet.setValueTextSize(16f);
 
-        pie.legend().title().enabled(true);
-        pie.legend().title()
-                .text("Tháng")
-                .padding(0d, 0d, 10d, 0d);
+        PieData pieData = new PieData(pieDataSet);
 
-        pie.legend()
-                .position("center-bottom")
-                .itemsLayout(LegendLayout.HORIZONTAL)
-                .align(Align.CENTER);
+        chart_thu.setData(pieData);
 
-        chart.setChart(pie);
+        Legend legend = chart_thu.getLegend();
+        legend.setTextSize(16f);
+
 
     }
+    public void setDataChart(){
+        myPieData.clear();
+        for (int i = 0 ; i < thuNhapDAO.getMoth(y).size() ; i++){
+            myPieData.add(new PieEntry(Float.parseFloat(String.valueOf(thuNhapDAO.getMoneyInMoth(y).get(i))),
+                    "T" + thuNhapDAO.getMoth(y).get(i)));
+        }
+        chart_thu.notifyDataSetChanged();
+        chart_thu.invalidate();
+    }
+
 }

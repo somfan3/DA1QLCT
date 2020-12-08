@@ -3,36 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="vn.poly.quanlychitieu.fragment.BieuDoThuFragment">
+    tools:context=".fragment.BieuDoThuFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-      >
+        >
+
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_marginRight="8dp"
-            android:layout_weight="1"
             android:text="Biểu đồ thống kê thu nhập năm "
             android:textColor="@color/colorPrimary"
             android:textSize="17sp" />
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@id/tv"
-            android:layout_width="130dp"
+        <Button
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spn_bdthunam"/>
+            android:layout_toRightOf="@+id/z"
+            android:id="@+id/btn_bdthunam"
+            android:text="Chọn năm"/>
 
-        <com.anychart.AnyChartView
-            android:layout_below="@id/tv"
-            android:id="@+id/chart_thu"
+        <com.github.mikephil.charting.charts.PieChart
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:id="@+id/chart_thu"
+            android:layout_below="@id/btn_bdthunam"/>
     </RelativeLayout>
-
 
 
 </FrameLayout>
