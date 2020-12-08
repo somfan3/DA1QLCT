@@ -15,6 +15,7 @@ import vn.poly.quanlychitieu.R;
 import vn.poly.quanlychitieu.dao.ChiTieuDAO;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -92,6 +93,10 @@ public class BieuDoChiFragment extends Fragment {
         PieData pieData = new PieData(pieDataSet);
 
         chart_chi.setData(pieData);
+
+        Legend legend = chart_chi.getLegend();
+        legend.setTextSize(16f);
+
     }
     public void setDataChart(){
         myPieData.clear();
