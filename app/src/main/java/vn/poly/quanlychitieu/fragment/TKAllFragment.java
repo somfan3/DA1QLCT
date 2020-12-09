@@ -15,7 +15,7 @@ import vn.poly.quanlychitieu.dao.ThuNhapDAO;
 
 import java.text.DecimalFormat;
 
-public class ThongKeAllFragment extends Fragment {
+public class TKAllFragment extends Fragment {
     TextView tv_tongAll,tv_chiAll,tv_duAll;
     ThuNhapDAO thuNhapDAO;
     ChiTieuDAO chiTieuDAO;

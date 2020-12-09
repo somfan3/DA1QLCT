@@ -141,6 +141,15 @@ public class ChiTieuDAO {
         cursor.close();
         return tongChi;
     }
+    public double getTongChiHN(String currentDay){
+        Double tongChi;
+        String sql = "Select Sum(" +COLUMN_TIEN_CHI  + ") From " +TABLE_NAME +" Where " + COLUMN_NGAY_CHI + " = '" + currentDay +"'";
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        tongChi = cursor.getDouble(0);
+        cursor.close();
+        return tongChi;
+    }
     public List<ChiTieu> tim(String loai , String tien , String ngaybatdau, String ngaykethuc){
         String sql;
         if (loai.equals("Tất cả")){
@@ -198,31 +207,31 @@ public class ChiTieuDAO {
 
         return chiTieuList;
     }
-    public List<String> getMoth(String nam){
-        List<String> thangList = new ArrayList<>();
-
-        String sql = "Select DISTINCT strftime('%m',ngaychi) From ChiTieu where strftime('%Y',ngaychi) = '" +nam + "' order by strftime('%m',ngaychi)";
-        Cursor cursor = db.rawQuery(sql, null);
-        cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
-            thangList.add(cursor.getString(0));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return thangList;
-    }
-    public List getMoneyInMoth(String nam){
-        List<Double> tienThuList = new ArrayList<>();
-
-        String sql = "Select sum(tienchi) from ChiTieu where strftime ('%Y',ngaychi) = '" +nam + "' group by strftime('%m',ngaychi) order by strftime('%m',ngaychi)";
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            tienThuList.add(cursor.getDouble(0));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return tienThuList;
-
-    }
+//    public List<String> getMoth(String nam){
+//        List<String> thangList = new ArrayList<>();
+//
+//        String sql = "Select DISTINCT strftime('%m',ngaychi) From ChiTieu where strftime('%Y',ngaychi) = '" +nam + "' order by strftime('%m',ngaychi)";
+//        Cursor cursor = db.rawQuery(sql, null);
+//        cursor.moveToFirst();
+//        while(!cursor.isAfterLast()){
+//            thangList.add(cursor.getString(0));
+//            cursor.moveToNext();
+//        }
+//        cursor.close();
+//        return thangList;
+//    }
+//    public List getMoneyInMoth(String nam){
+//        List<Double> tienThuList = new ArrayList<>();
+//
+//        String sql = "Select sum(tienchi) from ChiTieu where strftime ('%Y',ngaychi) = '" +nam + "' group by strftime('%m',ngaychi) order by strftime('%m',ngaychi)";
+//        Cursor cursor = db.rawQuery(sql,null);
+//        cursor.moveToFirst();
+//        while (!cursor.isAfterLast()){
+//            tienThuList.add(cursor.getDouble(0));
+//            cursor.moveToNext();
+//        }
+//        cursor.close();
+//        return tienThuList;
+//
+//    }
 }

@@ -19,7 +19,7 @@ import vn.poly.quanlychitieu.dao.ThuNhapDAO;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-public class ThongKeThangFragment extends Fragment {
+public class TKThangFragment extends Fragment {
     AppCompatSpinner spn_Nam,spn_Thang;
     TextView tv_tongThang,tv_chiThang,tv_duThang;
     View view;

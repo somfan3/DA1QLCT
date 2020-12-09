@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="vn.poly.quanlychitieu.fragment.TKThangFragment">
+    tools:context=".fragment.TKHomNayFragment">
 
     <LinearLayout
         android:layout_marginRight="8dp"
@@ -14,40 +14,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_bg"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_marginLeft="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tháng :"
-                android:textSize="20sp"
-                android:textColor="@color/colorBlack"/>
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:textAlignment="center"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spn_Thang"
-                android:gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:text="Năm :"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:textAlignment="center"
-                android:id="@+id/spn_Nam"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal" />
-        </LinearLayout>
+            android:layout_marginLeft="16dp"
+            android:text="Hôm nay"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
         <TextView
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
@@ -59,7 +33,7 @@
             android:padding="10dp"/>
         <TextView
             android:layout_marginTop="8dp"
-            android:id="@+id/tv_tongThang"
+            android:id="@+id/tv_tonghn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
@@ -78,7 +52,7 @@
             android:padding="10dp"/>
         <TextView
             android:layout_marginTop="8dp"
-            android:id="@+id/tv_chiThang"
+            android:id="@+id/tv_chihn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
@@ -96,7 +70,7 @@
             android:padding="10dp"/>
         <TextView
             android:layout_marginTop="8dp"
-            android:id="@+id/tv_duThang"
+            android:id="@+id/tv_duhn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"

@@ -20,7 +20,7 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 
 
-public class ThongKeNamFragment extends Fragment {
+public class TKNamFragment extends Fragment {
     ThuNhapDAO thuNhapDAO;
     ChiTieuDAO chiTieuDAO;
     AppCompatSpinner spn_nam;
