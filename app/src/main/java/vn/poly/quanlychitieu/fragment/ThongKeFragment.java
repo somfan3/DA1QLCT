@@ -41,7 +41,6 @@ public class ThongKeFragment extends Fragment {
     }
     public void addTabs(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(new TKAllFragment(),"Tất cả");
         adapter.addFrag(new TKHomNayFragment(),"Hôm nay");
         adapter.addFrag(new TKThangFragment(),"Tháng");
         adapter.addFrag(new TKNamFragment(),"Năm");

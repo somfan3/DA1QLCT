@@ -120,17 +120,6 @@ public class ThuNhapDAO {
         return icon;
     }
 
-
-
-    public double getTongThu(){
-        Double tongThu = 0.0;
-        String sql = "Select Sum(" +COLUMN_TIEN_THU  + ") From " +TABLE_NAME;
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        tongThu = cursor.getDouble(0);
-        cursor.close();
-        return tongThu;
-    }
     public double getTongThuNam(String nam){
         Double tongThu = 0.0;
         String sql = "Select Sum(" +COLUMN_TIEN_THU  + ") From " +TABLE_NAME +" Where strftime('%Y'," + COLUMN_NGAY_THU + ") " +

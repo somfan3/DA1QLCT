@@ -109,15 +109,7 @@ public class ChiTieuDAO {
 
         return icon;
     }
-    public double getTongChi(){
-        Double tongChi=0.0;
-        String sql = "Select Sum(" +COLUMN_TIEN_CHI  + ") From " +TABLE_NAME;
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        tongChi = cursor.getDouble(0);
-        cursor.close();
-        return tongChi;
-    }
+
     public double getTongChiNam(String nam){
         Double tongChi;
         String sql = "Select Sum(" +COLUMN_TIEN_CHI  + ") From " +TABLE_NAME +" Where strftime('%Y'," + COLUMN_NGAY_CHI + ") " +
