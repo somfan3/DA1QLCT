@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="vn.poly.quanlychitieu.BieuDoActivity" android:screenOrientation="portrait" />
+
         <activity android:name="vn.poly.quanlychitieu.ThemLoaiChiActivity" android:screenOrientation="portrait"/>
         <activity android:name="vn.poly.quanlychitieu.ListLoaiChiActivity" android:screenOrientation="portrait" />
         <activity android:name="vn.poly.quanlychitieu.ChiTieuActivity" android:screenOrientation="portrait" />
