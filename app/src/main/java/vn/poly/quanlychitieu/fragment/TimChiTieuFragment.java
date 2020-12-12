@@ -132,6 +132,10 @@ public class TimChiTieuFragment extends Fragment {
         btn_timchi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tien = "";
+                ngayBatDau="";
+                ngayKetThuc="";
+
                 loai = loaiChiList.get(spn_loaichi.getSelectedItemPosition()).getMaLoai();
 
                 if (btn_ngaychistart.getText().toString().equals("Chọn ngày bắt đầu")

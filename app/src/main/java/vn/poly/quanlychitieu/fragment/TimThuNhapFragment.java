@@ -130,6 +130,10 @@ public class TimThuNhapFragment extends Fragment {
         btn_timthu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tien = "";
+                ngayBatDau="";
+                ngayKetThuc="";
+
                  loai = loaiThuList.get(spn_loaithu.getSelectedItemPosition()).getMaLoai();
 
                 if (btn_ngaythustart.getText().toString().equals("Chọn ngày bắt đầu")
