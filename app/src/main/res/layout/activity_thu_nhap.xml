@@ -21,7 +21,7 @@
         android:layout_below="@id/toolbarThuNhap"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="84dp"
-        android:text="Loại chi :"
+        android:text="Loại thu :"
         android:textColor="#59BFDF"
         android:textSize="20sp" />
         <androidx.appcompat.widget.AppCompatSpinner
