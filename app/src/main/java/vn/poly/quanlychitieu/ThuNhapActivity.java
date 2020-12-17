@@ -53,9 +53,7 @@ public class ThuNhapActivity extends AppCompatActivity {
         numberFormat();
         getLoaiThu();
         getBundle();
-
     }
-
     public void initView(){
         spnLoaiThu = findViewById(R.id.spnLoaiThu);
         edtTienThu = findViewById(R.id.edtTienThu);
@@ -202,7 +200,6 @@ public class ThuNhapActivity extends AppCompatActivity {
         }
         return -1;
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_delete,menu);
