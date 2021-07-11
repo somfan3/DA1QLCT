@@ -23,7 +23,7 @@ public class ListLoaiThuActivity extends AppCompatActivity {
     LoaiThuDAO loaiThuDAO;
     ListView lvLoaiThu;
     List<LoaiThu> loaiThuList;
-    ImageView ivBack;
+    ImageView ivBack; //dsasdsasdsa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
